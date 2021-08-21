@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,700;1,800;1,900&display=swap');
+
+//font variables
+$font-title: 'Poppins', sans-serif;
+$font-text: 'PlusJakartaText', sans-serif;
+
+// color variables
+$color-valeria-100: #4F3DFE;
+$color-valeria-80: #7264FE;
+$color-valeria-60: #958BFE;
+$color-valeria-40: #B9B1FF;
+$color-valeria-20: #DCD8FF;
+$color-valeria-10: #EDECFF;
+$color-valeria-05: #F6F5FF;
+$color-valeria-02: #FAF9FF;
+
+$color-aguacate-100: #2FCAD7;
+$color-valeria-80: #59D5DF;
+$color-valeria-60: #82DFE7;
+$color-valeria-40: #ACEAEF;
+$color-valeria-20: #D5F4F7;
+$color-valeria-10: #EAFAFB;
+$color-valeria-05: #F5FCFD;
+
+$color-salmon: #FF585F;
+$color-salmon-20: #FFDEDF;
+
+$color-cali: #FABC00;
+$color-cali-20: #FEF2CC;
+
+$color-salbi: #13CF8F;
+$color-salbi-20: #D0F5E9;
+
+$color-black: #0B0A1F;
+$color-white: #FFFFFF;
+
+$color-gray-100: #4D4D4D;
+$color-gray-80: #707070;
+$color-gray-60: #949494;
+$color-gray-40: #B8B8B8;
+$color-gray-20: #DBDBDB;
+$color-gray-10: #EDEDED;
+$color-gray-05: #F6F6F6;
+
+// mixin media queries
+@import "./_mixings.scss";
+
+//font loads
+@font-face {
+    font-family: "PlusJakartaText";
+    src: local("PlusJakartaText"),
+     url("./fonts/plus-jakarta-sans/PlusJakartaText-Bold.otf") format("opentype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "PlusJakartaText";
+    src: local("PlusJakartaText"),
+     url("./fonts/plus-jakarta-sans/PlusJakartaText-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
