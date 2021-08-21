@@ -42,6 +42,11 @@ $color-gray-20: #DBDBDB;
 $color-gray-10: #EDEDED;
 $color-gray-05: #F6F6F6;
 
+// padding variables
+$padding-web: 40px;
+$padding-tablet: 20px;
+
+
 // mixin media queries
 @import "./_mixings.scss";
 

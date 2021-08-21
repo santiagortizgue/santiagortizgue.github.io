@@ -70,11 +70,11 @@
         justify-content: space-between;
         align-items: center;
         align-content: center;
-        padding: 21px 20px;
+        padding: 21px $padding-tablet;
     }
 
     @include breakpoint(laptop) {
-        padding: 21px 40px;
+        padding: 21px $padding-web;
     }
 
     /* web styles */
@@ -91,6 +91,14 @@
         height: 32px;
 
         margin-right: 20px;
+
+        @include breakpoint(tablet) {
+            margin-right: 12px;
+        }
+
+        @include breakpoint(laptop) {
+            margin-right: 20px;
+        }
 
         >img{
             width: 100%;

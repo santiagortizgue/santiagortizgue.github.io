@@ -52,7 +52,6 @@ const WebMenu = () => {
                         </Link>
                         <h1 className="WebMenu-title">Santiagortizgue</h1>
                     </div>
-
                     <NavMenu />
                 </div>
             }

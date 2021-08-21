@@ -1,0 +1,49 @@
+@import '../../assets/variables.scss';
+
+.Footer{
+    width: 100%;
+    height: auto;
+
+    padding: 30px $padding-web;
+    background-color: $color-valeria-10;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include breakpoint(tablet){
+        padding: 20px $padding-tablet;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    @include breakpoint(laptop){
+        padding: 28px $padding-web;
+    }
+
+    .ProfileLinks{
+        margin-bottom: 20px;
+
+        @include breakpoint(tablet){
+            margin: 0;
+        }
+    }
+
+    >p{
+        font-family: $font-title;
+        color: $color-black;
+        font-size: 12px;
+        line-height: 160%;
+        font-weight: 600;
+
+        >a{
+            color: $color-black;
+            transition: .2s ease-in-out color;
+
+            &:hover{
+                color: $color-valeria-100;
+            }
+        }
+    }
+}

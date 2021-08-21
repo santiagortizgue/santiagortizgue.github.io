@@ -118,5 +118,34 @@ export default {
         name: "linkedin",
         id: 4,
         url: "https://www.linkedin.com/in/santiago-ortiz-guevara/"
-    }]
+    }],
+    social_media: {
+        big: [{
+            name: "Github",
+            profile: "@santiagotizgue",
+            url: "https://github.com/santiagortizgue",
+            id: 0
+        },{
+            name: "LinkedIn",
+            profile: "santiago-ortiz-guevara",
+            url: "https://www.linkedin.com/in/santiago-ortiz-guevara/",
+            id: 1
+        },{
+            name: "Instagram",
+            profile: "@santiagotizgue",
+            url: "https://www.instagram.com/santiagortizgue/",
+            id: 2
+        }],
+        small: [{
+            name: "Correo",
+            profile: "santiagortizgue@gmail.com",
+            url: "mailto:santiagortizgue@gmail.com",
+            id: 0
+        },{
+            name: "CV",
+            profile: "Download CV",
+            url: "https://santiagortizgue.github.io/file/CV.pdf",
+            id: 1
+        }]
+    }
 };

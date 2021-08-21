@@ -1,0 +1,167 @@
+@import '../../assets/variables.scss';
+
+.SocialMedia{
+    width: 100%;
+    height: auto;
+    padding: 60px $padding-tablet;
+
+    background-color: $color-black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    @include breakpoint(tablet){
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        align-items: flex-start;
+    }
+
+    @include breakpoint(laptop){
+        padding: 60px $padding-web;
+    }
+
+    @include breakpoint(desktop){
+        justify-content: center;
+    }
+
+    &-bigLink{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-self: flex-start;
+        justify-content: center;
+
+        text-decoration: none;
+
+        width: auto;
+        height: auto;
+
+        margin-bottom: 20px;
+
+        @include breakpoint(tablet){
+            margin-bottom: 20px;
+            margin-right: 20px;
+        }
+
+        @include breakpoint(desktop){
+            margin: 0;
+            padding: 16px;
+        }
+
+        @include breakpoint(large_desktop){
+            padding: 0;
+            margin-right: 60px;
+        }
+
+        &:hover{
+            .SocialMedia-linkData >p{
+                color: $color-valeria-100;
+            }
+        }
+
+        >img{
+            width: 40px;
+            height: 40px;
+
+            margin-right: 20px;
+
+            @include breakpoint(laptop){
+                width: 48px;
+                height: 48px;
+            }
+        }
+    }
+
+    &-linkData{
+        display: flex;
+        flex-direction: column;
+
+        >h3{
+            color: $color-white;
+            font-family: $font-title;
+            font-size: 16px;
+            line-height: 120%;
+            font-weight: 700;
+
+            margin-bottom: 4px;
+
+            @include breakpoint(laptop){
+                font-size: 20px;
+                margin: 0;
+            }
+        }
+
+        >p{
+            color: $color-white;
+            font-family: $font-text;
+            font-size: 14px;
+            line-height: 120%;
+            font-weight: 600;
+
+            transition: .2s ease-in-out color;
+
+            @include breakpoint(laptop){
+                font-size: 18px;
+            }
+        }
+    }
+
+    &-smallLinks{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        @include breakpoint(desktop){
+            padding: 16px;
+        }
+
+        @include breakpoint(large_desktop){
+            padding: 0;
+        }
+    }
+
+    &-smallLink{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-self: flex-start;
+        justify-content: center;
+
+        text-decoration: none;
+
+        width: auto;
+        height: auto;
+
+        margin-bottom: 8px;
+
+        &:hover{
+            >p{
+                color: $color-valeria-100;
+            }
+        }
+
+        &:last-of-type{
+            margin: 0;
+        }
+
+        >img{
+            width: 24px;
+            height: 24px;
+
+            margin-right: 20px;
+        }
+
+        >p{
+            color: $color-white;
+            font-family: $font-text;
+            font-size: 16px;
+            line-height: 120%;
+            font-weight: 600;
+
+            transition: .2s ease-in-out color;
+        }
+    }
+}

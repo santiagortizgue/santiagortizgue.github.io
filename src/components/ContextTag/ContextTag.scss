@@ -1,0 +1,27 @@
+@import '../../assets/variables.scss';
+
+.ContextTag{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+
+    margin-bottom: 12px;
+
+    >h5{
+        color: $color-white;
+        margin-right: 16px;
+    }
+
+    &-line{
+        width: 80px;
+        height: 2px;
+
+        background-color: $color-white;
+    }
+}
