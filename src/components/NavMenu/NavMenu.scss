@@ -1,0 +1,51 @@
+@import '../../assets/variables.scss';
+
+.NavMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+
+    &-item{
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        padding: 8px 16px;
+        margin-bottom: 16px;
+
+        background-color: $color-white;
+        border-radius: 8px;
+
+        transition: .3s ease-in-out background-color;
+
+        &:hover{
+            background-color: $color-aguacate-10;
+        }
+
+        &:last-of-type{
+            margin-bottom: 0;
+        }
+
+        >h3{
+            font-size: 16px;
+            font-weight: 600px;
+            font-family: $font-text;
+            line-height: 120%;
+            color: $color-black;
+        }
+
+        >span{
+            margin-left: 10px;
+            padding: 4px 8px;
+
+            font-size: 12px;
+            font-weight: 600px;
+            font-family: $font-text;
+            line-height: 120%;
+            color: $color-aguacate-100;
+
+            background-color: $color-aguacate-10;
+            border-radius: 8px;
+        }
+    }
+}

@@ -1,14 +1,12 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useContext } from 'react';
 import AppContext from '../../context/AppContext';
 
 const Portfolio = () => {
-
-    const [projects] = useState(AppContext);
+    const { state } = useContext(AppContext);
 
     return (
         <div className="Portfolio">
-  
+        
         </div>
     );
 }

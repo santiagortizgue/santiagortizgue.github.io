@@ -1,0 +1,47 @@
+@import '../../assets/variables.scss';
+
+.ProfileLinks {
+    width: auto;
+    height: auto;
+
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+
+    &-title {
+        font-family: $font-text;
+        color: $color-black;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 160%;
+
+        margin-right: 12px;
+    }
+
+    &-line {
+        width: 2px;
+        height: 16px;
+        background-color: $color-black;
+
+        margin-right: 12px;
+    }
+
+    &-links {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        align-items: center;
+    }
+
+    &-link {
+        margin-right: 12px;
+        width: 16px;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+}
