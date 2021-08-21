@@ -6,10 +6,20 @@
     align-items: center;
     width: auto;
 
+    @include breakpoint(tablet) {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        align-content: center;
+    }
+
     &-item{
         text-decoration: none;
         display: flex;
         flex-direction: row;
+        align-content: center;
+        align-items: center;
         padding: 8px 16px;
         margin-bottom: 16px;
 
@@ -17,6 +27,10 @@
         border-radius: 8px;
 
         transition: .3s ease-in-out background-color;
+
+        @include breakpoint(tablet) {
+            margin: 0;
+        }
 
         &:hover{
             background-color: $color-aguacate-10;
@@ -32,6 +46,14 @@
             font-family: $font-text;
             line-height: 120%;
             color: $color-black;
+
+            @include breakpoint(tablet) {
+                font-size: 12px;
+            }
+
+            @include breakpoint(laptop) {
+                font-size: 16px;
+            }
         }
 
         >span{
@@ -46,6 +68,14 @@
 
             background-color: $color-aguacate-10;
             border-radius: 8px;
+
+            @include breakpoint(tablet) {
+                font-size: 10px;
+            }
+
+            @include breakpoint(laptop) {
+                font-size: 12px;
+            }
         }
     }
 }

@@ -39,6 +39,11 @@
     &-link {
         margin-right: 12px;
         width: 16px;
+        height: 16px;
+
+        >a{
+            width: 100%;
+        }
 
         &:last-of-type {
             margin-right: 0;

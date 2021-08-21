@@ -10,6 +10,7 @@
 
     background-color: $color-white;
 
+    /* mobile styles */
     &-mobileMenu{
         width: 100%;
 
@@ -60,5 +61,50 @@
         background-color: $color-black;
         width: 24px;
         height: 24px;
+    }
+
+    @include breakpoint(tablet) {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        padding: 21px 20px;
+    }
+
+    @include breakpoint(laptop) {
+        padding: 21px 40px;
+    }
+
+    /* web styles */
+    &-context{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+    }
+
+    &-Logo{
+        width: 32px;
+        height: 32px;
+
+        margin-right: 20px;
+
+        >img{
+            width: 100%;
+        }
+    }
+
+    &-title{
+        font-size: 16px;
+        font-weight: 700;
+        color: $color-black;
+        font-family: $font-title;
+
+        @include breakpoint(laptop) {
+            font-size: 20px;
+        }
     }
 }
