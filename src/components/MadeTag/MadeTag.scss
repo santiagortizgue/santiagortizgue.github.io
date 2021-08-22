@@ -1,0 +1,31 @@
+@import '../../assets/variables.scss';
+
+.MadeTag{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: flex-start;
+
+    width: auto;
+    height: auto;
+
+    >h4{
+        font-size: 16px;
+        color: $color-black;
+        font-weight: 600;
+        line-height: 160%;
+        font-family: $font-text;
+
+        margin-right: 12px;
+    }
+
+    >a{
+        width: auto;
+        height: auto;
+        >img{
+            height: 32px;
+        }
+    }
+}

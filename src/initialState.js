@@ -147,5 +147,6 @@ export default {
             url: "https://santiagortizgue.github.io/file/CV.pdf",
             id: 1
         }]
-    }
+    },
+    API: 'http://localhost:1337'
 };

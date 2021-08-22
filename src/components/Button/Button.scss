@@ -1,0 +1,21 @@
+@import '../../assets/variables.scss';
+
+.Button{
+    padding: 12px 20px;
+    background-color: $color-valeria-100;
+    border-radius: 8px;
+    border: none;
+    color: $color-white;
+    transition: .2s ease-in-out background-color;
+
+    font-family: $font-title;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 120%;
+
+    cursor: pointer;
+
+    &:hover{
+        background-color: $color-aguacate-100;
+    }
+}
