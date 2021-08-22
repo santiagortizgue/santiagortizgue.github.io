@@ -4,14 +4,18 @@ import AppContext from '../../context/AppContext';
 
 import './NavMenu.scss'
 
-const NavMenu = () => {
+const NavMenu = ({handleState}) => {
     const { state } = useContext(AppContext);
     const { pages } = state;
+
+    const handleClick = () => {
+        handleState();
+    }
 
     return (
         <div className="NavMenu">
             {pages.map((page) => (
-                <Link key={page.id} to={page.route} className="NavMenu-item">
+                <Link key={page.id} to={page.route} onClick={handleClick} className="NavMenu-item">
                     <h3>
                         {page.name}
                     </h3>

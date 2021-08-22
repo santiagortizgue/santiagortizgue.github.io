@@ -31,7 +31,15 @@ const Home = () => {
       <div className="Home-top">
         <div className="Home-imgContainer">
           <div className="Home-gradient"></div>
-          <img src="" alt="Profile pic" />
+          <img className="Home-img" src="./png/profile.png" alt="Profile pic" />
+          <div className="Home-roleTag tag2">
+            <h4>Front-End</h4>
+            <p>Developer</p>
+          </div>
+          <div className="Home-roleTag tag1">
+            <h4>UI</h4>
+            <p>Designer</p>
+          </div>
         </div>
         <h2 className="Home-title">Hi, I’m <span>Santiago</span>. My creativity allows me to build experiences & interfaces.</h2>
         <Button onClick={handleContact} text="Contact me"/>

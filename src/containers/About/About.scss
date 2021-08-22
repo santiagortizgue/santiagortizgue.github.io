@@ -1,0 +1,99 @@
+@import '../../assets/variables.scss';
+
+.About{
+    width: 100%;
+    height: auto;
+
+    &-top{
+        background-color: $color-white;
+        width: 100%;
+        min-height: 90vh;
+        height: auto;
+        padding: 40px $padding-tablet;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: center;
+        align-items: flex-start;
+
+        @include breakpoint(laptop){
+            padding: 0 $padding-web;
+        }
+    }
+
+    &-img{
+        width: 100%;
+        margin-bottom: 40px;
+
+        border-radius: 8px;
+
+        @include breakpoint(laptop){
+            margin: 0;
+        }
+    }
+
+    &-title{
+        font-size: 28px;
+        line-height: 120%;
+        color: $color-black;
+        font-family: $font-title;
+        font-weight: 700;
+
+        margin-bottom: 20px;
+    }
+
+    &-text{
+        color: $color-black;
+        font-family: $font-text;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+        text-align: justify;
+
+        margin-bottom: 40px;
+
+        >span{
+            color: $color-valeria-100;
+            font-weight: 600;
+        }
+    }
+
+    &-location{
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-content: center;
+        align-items: center;
+
+        >img{
+            width: 24px;
+            margin-right: 16px;
+        }
+
+        >p{
+            font-size: 18px;
+            line-height: 120%;
+            color: $color-black;
+            font-family: $font-text;
+            font-weight: 400;
+        }
+    }
+
+    &-sliders{
+        background-color: $color-black;
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 40px $padding-tablet;
+    }
+
+    .AboutSlider:first-of-type{
+        margin-bottom: 40px;
+    }
+}

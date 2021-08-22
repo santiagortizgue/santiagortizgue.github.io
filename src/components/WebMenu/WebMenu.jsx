@@ -17,12 +17,20 @@ const WebMenu = () => {
         }
     }, []);
 
-    function handleType() {
+    const handleType = () => {
         let value = "mobile";
         if (window.innerWidth > 500) {
             value = "web";
         }
         setMenu(value);
+    }
+
+    const handleState = () => {
+        if(menu === "web"){
+            setState(false);
+            return;
+        }
+        setState(!state);
     }
 
     return (
@@ -32,27 +40,27 @@ const WebMenu = () => {
                     {state ?
                         <div className="WebMenu-mobileMenu">
                             <ProfileLinks />
-                            <NavMenu />
+                            <NavMenu handleState={handleState} />
                         </div>
                         : ''}
                     <div className="WebMenu-mobileContent">
-                        <Link to="/" className="WebMenu-mobileLogo">
+                        <Link to="/" className="WebMenu-mobileLogo" onClick={()=> {setState(false)}}>
                             <img src="./svg/logo.svg" alt="Logo icon" />
                         </Link>
                         <h1 className="WebMenu-mobileTitle">Santiagortizgue</h1>
-                        <div className="WebMenu-iconContainer" onClick={() => { setState(!state) }}>
+                        <div className="WebMenu-iconContainer" onClick={handleState}>
                         </div>
                     </div>
                 </div>
                 :
                 <div className="WebMenu">
                     <div className="WebMenu-context">
-                        <Link to="/" className="WebMenu-Logo">
+                        <Link to="/" className="WebMenu-Logo" onClick={()=> {setState(false)}}>
                             <img src="./svg/logo.svg" alt="Logo icon" />
                         </Link>
                         <h1 className="WebMenu-title">Santiagortizgue</h1>
                     </div>
-                    <NavMenu />
+                    <NavMenu handleState={handleState} />
                 </div>
             }
         </>
