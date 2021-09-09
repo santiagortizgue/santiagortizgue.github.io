@@ -16,7 +16,8 @@ const useInitialState = () => {
     const getData = async () => {
         try {
             const response = await axios(`${API}/projects`);
-            setProjects(response.data);
+            let items = response.data.sort(compareId);
+            setProjects(items);
         } catch (error) {
             console.log("Error getting the projects", error.message);
         }
@@ -40,3 +41,8 @@ const useInitialState = () => {
 };
 
 export default useInitialState;
+
+
+function compareId(a, b) {
+    return b.id - a.id;
+}

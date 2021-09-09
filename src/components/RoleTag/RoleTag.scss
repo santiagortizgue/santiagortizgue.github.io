@@ -1,0 +1,60 @@
+@import '../../assets/variables.scss';
+
+.RoleTag {
+    padding: 6px 12px;
+    border-radius: 40px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: auto;
+    height: auto;
+
+    >p {
+        font-family: $font-text;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 140%;
+    }
+
+    &-ui{
+        background-color: $color-aguacate-20;
+
+        >p{
+            color: $color-aguacate-100;
+        }
+    }
+
+    &-ux{
+        background-color: $color-salmon-20;
+
+        >p{
+            color: $color-salmon-100;
+        }
+    }
+
+    &-front{
+        background-color: $color-valeria-20;
+
+        >p{
+            color: $color-valeria-100;
+        }
+    }
+
+    &-back{
+        background-color: $color-salbi-20;
+
+        >p{
+            color: $color-salbi-100;
+        }
+    }
+
+    &-pm{
+        background-color: $color-cali-20;
+
+        >p{
+            color: $color-cali-100;
+        }
+    }
+}

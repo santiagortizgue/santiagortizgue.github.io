@@ -2,6 +2,8 @@
 export default {
     ui_concepts: [],
     front_challenges: [],
+    // maximun characters in portfolio cards
+    MAX_CARD_CHARACTERS: 117,
     work_roles: [{
         name: "UI Designer",
         type: "ui",

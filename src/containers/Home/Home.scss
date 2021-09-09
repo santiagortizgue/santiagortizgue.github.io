@@ -58,8 +58,11 @@
     &-roleTag{
         position: absolute;
 
-        background: linear-gradient(45deg, $color-white 0%, rgba($color-white, 0.5) 100%);
+        background: $color-white;
         border-radius: 30px;
+
+        box-shadow: 0px 10px 30px 0px rgba($color-valeria-100, 0.16);
+
 
         padding: 10px 20px;
         width: auto;
