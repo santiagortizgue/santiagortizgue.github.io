@@ -9,6 +9,7 @@
     flex-direction: column;
 
     background-color: $color-white;
+    z-index: 10;
 
     /* mobile styles */
     &-mobileMenu{
