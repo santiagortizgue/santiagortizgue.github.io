@@ -3,4 +3,24 @@
 .SwiperContainer{
     width: 100%;
     height: auto;
+
+    &-controllers{
+        width: 100%;
+        height: auto;
+
+        margin-top: 40px;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-content: flex-start;
+        align-items: center;
+    }
+
+    &-pagination{
+        width: auto;
+        height: auto;
+        padding: 4px;
+    }
 }

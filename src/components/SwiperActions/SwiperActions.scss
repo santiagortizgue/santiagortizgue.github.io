@@ -1,0 +1,32 @@
+@import '../../assets/variables.scss';
+
+.ButtonSwiper {
+    width: fit-content;
+    border: 2px solid $color-valeria-100;
+    border-radius: 8px;
+    display: flex;
+    flex: 0 1 auto;
+    padding: 10px;
+    transition: .2s all ease-in-out;
+    cursor: pointer;
+
+    >svg {
+        width: 20px;
+        height: 20px;
+
+        >path {
+            stroke: $color-valeria-100;
+        }
+    }
+
+    &:hover{
+        background-color: $color-valeria-100;
+
+        >svg {
+    
+            >path {
+                stroke: $color-white;
+            }
+        }
+    }
+}
