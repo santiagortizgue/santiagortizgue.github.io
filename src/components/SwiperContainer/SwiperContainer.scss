@@ -22,5 +22,29 @@
         width: auto;
         height: auto;
         padding: 4px;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-content: flex-start;
+        align-items: center;
+
+        >span{
+            margin-right: 6px;
+        }
+
+        >:last-child{
+            margin: 0;
+        }
     }
+}
+
+.swiper-pagination-bullet{
+    background: $color-valeria-100 !important;
+    transition: ease-in-out all .2s;
+}
+
+.swiper-pagination-bullet-active{
+    transform: scale(1.3);
 }

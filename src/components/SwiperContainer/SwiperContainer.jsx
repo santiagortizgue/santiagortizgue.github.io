@@ -7,11 +7,14 @@ import { ButtonLeft, ButtonRight } from '../SwiperActions/SwiperActions';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import Swiper core and required modules
-import { Pagination } from 'swiper';
+import SwiperCore, { Pagination } from 'swiper';
 
 // Import Swiper styles
 import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss';
+
+// install Swiper modules
+SwiperCore.use([Pagination]);
 
 const SwiperContainer = ({ data }) => {
 
@@ -25,8 +28,6 @@ const SwiperContainer = ({ data }) => {
     }, [data]);
 
     const params = {
-        // install Swiper modules
-        modules: [Pagination],
         spaceBetween: 20,
         slidesPerView: 1,
         pagination: { clickable: false, el: paginationEl },
@@ -46,7 +47,7 @@ const SwiperContainer = ({ data }) => {
 
             <div className="SwiperContainer-controllers">
                 <ButtonLeft swiper={swiper} />
-                <div ref={paginationRef}></div>
+                <div ref={paginationRef} className="SwiperContainer-pagination"></div>
                 <ButtonRight swiper={swiper} />
             </div>
 
