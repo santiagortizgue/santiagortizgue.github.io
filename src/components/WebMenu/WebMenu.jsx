@@ -36,7 +36,7 @@ const WebMenu = () => {
     return (
         <>
             {menu === "mobile" ?
-                <div className="WebMenu">
+                <div className="WebMenu WebMenu-shadow">
                     {state ?
                         <div className="WebMenu-mobileMenu">
                             <ProfileLinks />

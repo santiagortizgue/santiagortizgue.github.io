@@ -12,6 +12,7 @@ import useInitialState from '../hooks/useInitialState';
 
 import WebMenu from '../components/WebMenu/WebMenu';
 import Footer from '../components/Footer/Footer';
+import Blog from '../containers/Blog/Blog';
 
 const App = () => {
   const initialState = useInitialState();
@@ -25,6 +26,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
+            <Route exact path="/blog" component={Blog} />
             <Route exact path="/portfolio" component={Portfolio} />
             <Route exact path="/project/:id" component={Project} />
             <Route exact path="/contact" component={Contact} />
