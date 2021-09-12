@@ -2,26 +2,35 @@
 
 .Blog{
     width: 100%;
-    padding: 20px $padding-tablet;
-    min-height: 90vh;
     height: auto;
-    display: grid;
-
-    @include breakpoint(laptop){
-        padding: 0 $padding-web;
-    }
 
     &-top{
-        background-color: $color-valeria-05;
+        display: grid;
         width: 100%;
-        height: 100%;
-        padding: 20px 0;
+        min-height: 90vh;
+        height: auto;
 
+        padding: 20px $padding-tablet;
+
+        @include breakpoint(laptop){
+            padding: 0 $padding-web;
+        }
+    }
+
+    &-container{
+        background-color: $color-valeria-05;
         border-radius: 8px;
+
+        width: 100%;
+        height: auto;
 
         display: grid; 
         align-self: stretch;
         grid-template-rows: 1fr auto auto 1fr; 
+    
+        @include breakpoint(laptop){
+            padding: 0 $padding-web;
+        }
 
         >img{
             width: 70%;

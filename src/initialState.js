@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default {
-    ui_concepts: [],
-    front_challenges: [],
+    concepts: [],
+    challenges: [],
     // maximun characters in portfolio cards
     MAX_CARD_CHARACTERS: 117,
     work_roles: [{

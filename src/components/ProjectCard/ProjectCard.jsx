@@ -1,6 +1,4 @@
 import React, { useContext} from 'react';
-
-import { SwiperSlide } from 'swiper/react';
 import AppContext from '../../context/AppContext';
 import RoleTag from '../RoleTag/RoleTag';
 
@@ -27,7 +25,7 @@ const ProjectCard = ({ data }) => {
     }
 
     return (
-        <SwiperSlide className="ProjectCard">
+        <div className="ProjectCard">
             <img src={`${API}${data.cover.url}`} alt="project cover" />
             <h4>{data.name}</h4>
             <p>{changeString(data.about)}</p>
@@ -36,7 +34,7 @@ const ProjectCard = ({ data }) => {
                     <RoleTag key={index} data={findRole(role)}/>
                 ))}
             </div>
-        </SwiperSlide>
+        </div>
     );
 }
 

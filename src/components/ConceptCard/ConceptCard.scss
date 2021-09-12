@@ -1,0 +1,43 @@
+@import '../../assets/variables.scss';
+
+.ConceptCard{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    >img {
+        width: 100%;
+        height: auto;
+
+        border-radius: 8px;
+
+        margin-bottom: 16px;
+    }
+
+    >h4 {
+        font-family: $font-title;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 110%;
+
+        color: $color-black;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+
+    >p {
+        font-family: $font-text;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 140%;
+
+        color: $color-black;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+}
