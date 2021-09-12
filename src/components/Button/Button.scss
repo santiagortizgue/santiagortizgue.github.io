@@ -1,6 +1,6 @@
 @import '../../assets/variables.scss';
 
-.Button{
+.Button {
     padding: 12px 20px;
     background-color: $color-valeria-100;
     border-radius: 8px;
@@ -15,7 +15,46 @@
 
     cursor: pointer;
 
-    &:hover{
+    &:hover {
         background-color: $color-aguacate-100;
+    }
+}
+
+.BackButton {
+    padding: 4px;
+    border-radius: 8px;
+    border: none;
+
+    background-color: $color-gray-05;
+
+    transition: .2s ease-in-out background-color;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: center;
+
+    font-family: $font-text;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 120%;
+
+    color: $color-black;
+
+    &:hover {
+        background-color: $color-valeria-40;
+    }
+
+    >svg {
+        margin-right: 8px;
+
+        >path {
+            stroke: $color-black;
+        }
     }
 }

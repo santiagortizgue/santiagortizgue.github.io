@@ -6,6 +6,7 @@ const useInitialState = () => {
     const [state] = useState(initialState);
     const [projects, setProjects] = useState([]);
     const [recent, setRecent] = useState(null);
+    const [project, setProject] = useState(null);
     const { API } = state;
 
     useEffect(() => {
@@ -23,7 +24,7 @@ const useInitialState = () => {
         }
     }
 
-    const getProject = async (id) => {
+    const getRecent = async (id) => {
         try {
             const response = await axios(`${API}/projects/${id}`);
             setRecent(response.data);
@@ -32,9 +33,20 @@ const useInitialState = () => {
         }
     }
 
+    const getProject = async (id) => {
+        try {
+            const response = await axios(`${API}/projects/${id}`);
+            setProject(response.data);
+        } catch (error) {
+            console.log("Error getting the project", error.message);
+        }
+    }
+
     return {
         getProject,
+        getRecent,
         recent,
+        project,
         projects,
         state,
     };

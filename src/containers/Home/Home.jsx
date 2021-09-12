@@ -8,13 +8,13 @@ import './Home.scss';
 import Button from '../../components/Button/Button';
 
 const Home = () => {
-  const { state, recent, getProject } = useContext(AppContext);
+  const { state, recent, getRecent } = useContext(AppContext);
   const { API } = state;
   const history = useHistory();
 
 
   useEffect(() => {
-    getProject(4);
+    getRecent(4);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
