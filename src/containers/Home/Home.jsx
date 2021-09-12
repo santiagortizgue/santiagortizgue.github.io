@@ -19,7 +19,7 @@ const Home = () => {
   }, []);
 
   const handleProject = () => {
-    history.push(`/projects/${recent.id}`);
+    history.push(`/project/${recent.id}`);
   }
 
   const handleContact = () => {

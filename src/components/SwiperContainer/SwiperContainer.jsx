@@ -46,7 +46,7 @@ const SwiperContainer = ({ data, isProject, isVariant }) => {
         <div className="SwiperContainer">
 
             <Swiper {...params} onSwiper={(sw) => setSwiper(sw)}>
-                
+            
                 {items.length === 0 ? 
                  <PlaceholderCard data={placeholder} isVariant={isVariant}/>
                 : ''}

@@ -1,4 +1,5 @@
-import React, { useContext} from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
 import RoleTag from '../RoleTag/RoleTag';
 
@@ -25,16 +26,16 @@ const ProjectCard = ({ data }) => {
     }
 
     return (
-        <div className="ProjectCard">
+        <Link to={`/project/${data.id}`} className="ProjectCard">
             <img src={`${API}${data.cover.url}`} alt="project cover" />
             <h4>{data.name}</h4>
             <p>{changeString(data.about)}</p>
             <div className="ProjectCard-roles">
-                {data.work_roles.map((role, index)=>(
-                    <RoleTag key={index} data={findRole(role)}/>
+                {data.work_roles.map((role, index) => (
+                    <RoleTag key={index} data={findRole(role)} />
                 ))}
             </div>
-        </div>
+        </Link>
     );
 }
 
