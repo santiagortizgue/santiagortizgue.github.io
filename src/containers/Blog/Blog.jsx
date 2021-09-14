@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Blog.scss'
 
 const Blog = () => {
     const title1 = '<Blog/>';
     const title2 = 'Coding...';
+
+    //if the second value of useEffect is empty array [], the behavior its the same as componentDidMount
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div className="Blog">

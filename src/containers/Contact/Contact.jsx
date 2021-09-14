@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import './Contact.scss';
 
 const Contact = () => {
@@ -6,6 +6,11 @@ const Contact = () => {
     const title2 = 'Let’s Talk.';
 
     const formData = useRef(null);
+
+    //if the second value of useEffect is empty array [], the behavior its the same as componentDidMount
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();

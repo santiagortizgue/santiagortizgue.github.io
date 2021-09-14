@@ -12,9 +12,9 @@ const Home = () => {
   const { API } = state;
   const history = useHistory();
 
-
   useEffect(() => {
     getRecent(4);
+    window.scrollTo(0, 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
