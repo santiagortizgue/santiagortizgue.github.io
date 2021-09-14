@@ -41,12 +41,44 @@
         width: 16px;
         height: 16px;
 
-        >a{
-            width: 100%;
-        }
+        transition: .2s ease-in-out all;
 
         &:last-of-type {
             margin-right: 0;
+        }
+
+        &:hover {
+            >.ProfileLinks-icon {
+                >path {
+                    stroke: $color-aguacate-100;
+                }
+            }
+
+            >.ProfileLinks-iconVariant {
+                >path {
+                    fill: $color-aguacate-100;
+                }
+            }
+        }
+    }
+
+    &-icon {
+        width: 100%;
+        height: 100%;
+
+        >path {
+            transition: .2s ease-in-out all;
+            stroke: $color-black;
+        }
+    }
+
+    &-iconVariant {
+        width: 100%;
+        height: 100%;
+
+        >path {
+            transition: .2s ease-in-out all;
+            fill: $color-black;
         }
     }
 }
