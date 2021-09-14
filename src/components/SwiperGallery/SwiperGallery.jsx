@@ -10,7 +10,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/swiper.scss';
-import 'swiper/components/pagination/pagination.scss';
 
 const SwiperGallery = ({ gallery }) => {
     const { state } = useContext(AppContext);

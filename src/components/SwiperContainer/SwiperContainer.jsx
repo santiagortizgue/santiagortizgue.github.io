@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './SwiperContainer.scss';
 
 import ProjectCard from '../ProjectCard/ProjectCard';
 import { ButtonLeft, ButtonRight } from '../SwiperActions/SwiperActions';
+
+import useSwiperRef from '../../hooks/useSwiperRef';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -70,19 +72,3 @@ const SwiperContainer = ({ data, isProject, isVariant }) => {
 }
 
 export default SwiperContainer;
-
-
-//custom hook
-const useSwiperRef = () => {
-    const [wrapper, setWrapper] = useState(null);
-    const ref = useRef(null);
-
-    useEffect(() => {
-        setWrapper(ref.current);
-    }, []);
-
-    return [
-        wrapper,
-        ref
-    ]
-};

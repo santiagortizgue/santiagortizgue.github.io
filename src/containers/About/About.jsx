@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react';
-import AboutSlider from '../../components/AboutSlider/AboutSlider';
-import ContextTag from '../../components/ContextTag/ContextTag';
+import React, { useEffect, useContext } from 'react';
+import SwiperCard from '../../components/SwiperCard/SwiperCard';
 import SocialMedia from '../../components/SocialMedia/SocialMedia';
 import "./About.scss"
 
-const About = () => {
+import AppContext from '../../context/AppContext';
 
+
+const About = () => {
+    const { state } = useContext(AppContext);
+    const { talents, experiences } = state;
+    
     //if the second value of useEffect is empty array [], the behavior its the same as componentDidMount
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -24,10 +28,8 @@ const About = () => {
             </div>
             <SocialMedia />
             <div className="About-sliders">
-                <ContextTag text="Talents" />
-                <AboutSlider />
-                <ContextTag text="Experience & Skills" />
-                <AboutSlider />
+                <SwiperCard text="Talents" gallery={talents} />
+                <SwiperCard text="Experience & Skills" gallery={experiences} />
             </div>
         </div>
     );

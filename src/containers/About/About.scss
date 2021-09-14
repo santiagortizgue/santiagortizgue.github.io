@@ -1,10 +1,10 @@
 @import '../../assets/variables.scss';
 
-.About{
+.About {
     width: 100%;
     height: auto;
 
-    &-top{
+    &-top {
         background-color: $color-white;
         width: 100%;
         min-height: 90vh;
@@ -18,23 +18,23 @@
         align-content: center;
         align-items: flex-start;
 
-        @include breakpoint(laptop){
+        @include breakpoint(laptop) {
             padding: 0 $padding-web;
         }
     }
 
-    &-img{
+    &-img {
         width: 100%;
         margin-bottom: 40px;
 
         border-radius: 8px;
 
-        @include breakpoint(laptop){
+        @include breakpoint(laptop) {
             margin: 0;
         }
     }
 
-    &-title{
+    &-title {
         font-size: 28px;
         line-height: 120%;
         color: $color-black;
@@ -44,7 +44,7 @@
         margin-bottom: 20px;
     }
 
-    &-text{
+    &-text {
         color: $color-black;
         font-family: $font-text;
         font-weight: 400;
@@ -54,13 +54,13 @@
 
         margin-bottom: 40px;
 
-        >span{
+        >span {
             color: $color-valeria-100;
             font-weight: 600;
         }
     }
 
-    &-location{
+    &-location {
         width: auto;
         display: flex;
         flex-direction: row;
@@ -68,12 +68,12 @@
         align-content: center;
         align-items: center;
 
-        >img{
+        >img {
             width: 24px;
             margin-right: 16px;
         }
 
-        >p{
+        >p {
             font-size: 18px;
             line-height: 120%;
             color: $color-black;
@@ -82,18 +82,17 @@
         }
     }
 
-    &-sliders{
+    &-sliders {
         background-color: $color-black;
         width: 100%;
         height: auto;
 
-        display: flex;
-        flex-direction: column;
-
+        display: grid;
+        row-gap: 40px;
         padding: 40px $padding-tablet;
-    }
 
-    .AboutSlider:first-of-type{
-        margin-bottom: 40px;
+        @include breakpoint(laptop) {
+            padding: 0 $padding-web;
+        }
     }
 }

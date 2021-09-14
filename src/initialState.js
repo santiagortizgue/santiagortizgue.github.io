@@ -77,8 +77,53 @@ export default {
         name: "java",
         id: 16
     }],
-    talents: [],
-    experiences: [],
+    talents: [{
+        title: 'Teamwork',
+        text: 'Working with my colleagues to achieve the objectives. I find my place to strengthen the work of my workmates.',
+        id: 0,
+        url: '/jpg/talents/0.jpg'
+    },{
+        title: 'Results Orientation',
+        text: 'Constantly remembering the objective and goals, allows my work to satisfy the required guidelines.',
+        id: 1,
+        url: '/jpg/talents/1.jpg'
+    },{
+        title: 'Problem Solving',
+        text: "Using research through design to find solutions for people's challenges, complexities & needs.",
+        id: 2,
+        url: '/jpg/talents/2.jpg'
+    },{
+        title: 'Creativity',
+        text: "Constantly observing what surrounds me holistically, allows me to strengthen my work generating new ideas.",
+        id: 3,
+        url: '/jpg/talents/3.jpg'
+    }],
+    experiences: [{
+        title: 'UI Design',
+        text: "According to people's needs, I create attractive design systems & patterns to develop applications.",
+        id: 0,
+        url: '/jpg/experiences/0.jpg'
+    },{
+        title: 'Web Development',
+        text: "Then, build these interactions with the best practices. I'm always learning new frameworks.",
+        id: 1,
+        url: '/jpg/experiences/1.jpg'
+    },{
+        title: 'Prototyping',
+        text: "Co-creation with users is always essential when I’m making design concepts & user experience ideas.",
+        id: 2,
+        url: '/jpg/experiences/2.jpg'
+    },{
+        title: 'UX Design',
+        text: "Empathy with people makes me imagine the best way users can interact with digital experiences.",
+        id: 3,
+        url: '/jpg/experiences/3.jpg'
+    },{
+        title: 'Photography',
+        text: "Seeing the world through a lens helps me stimulate my creativity.",
+        id: 4,
+        url: '/jpg/experiences/4.jpg'
+    }],
     pages: [{
         name: "About",
         type: "default",
