@@ -4,6 +4,7 @@
     width: 100%;
     height: auto;
 
+    /* Fist block */
     &-top {
         background-color: $color-white;
         height: auto;
@@ -77,6 +78,7 @@
 
     &-company {
         width: auto;
+        cursor: pointer;
 
         display: flex;
         flex-direction: row;
@@ -139,7 +141,7 @@
             margin-bottom: 12px;
         }
 
-        >div{
+        >div {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -147,10 +149,218 @@
             align-content: flex-start;
             align-items: center;
 
-            .RoleTag{
-                margin-right: 8px;
-                margin-bottom: 8px;
+            gap: 8px;
+        }
+    }
+
+    /* second block */
+    &-info {
+        background-color: $color-white;
+        height: auto;
+        width: 100%;
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        row-gap: 20px;
+
+        padding: 0 $padding-tablet;
+        margin-bottom: 20px;
+
+        @include breakpoint(laptop) {
+            padding: 0 $padding-web;
+        }
+    }
+
+    &-imgLeft {
+        width: 100%;
+    }
+
+    &-imgRight {
+        width: 100%;
+    }
+
+    &-quote {
+
+        >p {
+            font-family: $font-text;
+            font-style: italic;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 160%;
+            color: $color-black;
+
+            padding: 20px;
+        }
+    }
+
+    /* third block */
+    &-details {
+        width: 100%;
+        display: grid;
+        grid-template-rows: repeat(2, auto);
+        row-gap: 32px;
+
+        padding: 0 $padding-tablet;
+
+        @include breakpoint(laptop) {
+            padding: 0 $padding-web;
+        }
+
+        margin-bottom: 60px;
+    }
+
+    &-board {
+        background-color: $color-gray-05;
+        border-radius: 8px;
+        padding: 40px;
+        width: 100%;
+        height: auto;
+
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        row-gap: 40px;
+    }
+
+    &-topics {
+        width: 100%;
+        height: auto;
+    }
+
+    &-detailTitle {
+        font-family: $font-title;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 140%;
+
+        color: $color-black;
+
+        margin-bottom: 20px;
+    }
+
+    &-builtContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    &-app {
+        display: flex;
+        width: fit-content;
+        height: fit-content;
+        padding: 16px;
+        border-radius: 50%;
+        background-color: $color-white;
+
+        box-shadow: 0px 8px 12px rgba($color-valeria-100, 0.05);
+
+        >img {
+            width: 28px;
+            height: 28px;
+        }
+    }
+
+    &-teamContainer {
+
+        display: grid;
+        row-gap: 8px;
+
+        >a {
+            font-family: $font-text;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 160%;
+
+            color: $color-black;
+
+            cursor: pointer;
+
+            transition: .2s ease-in-out all;
+
+            &:hover {
+                color: $color-aguacate-100;
             }
         }
+    }
+
+    &-optionsContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    &-topics {
+        width: 100%;
+        height: auto;
+
+        display: grid;
+        row-gap: 32px;
+    }
+
+    &-topic {
+        display: grid;
+        row-gap: 20px;
+        column-gap: 12px;
+        grid-template-rows: auto auto;
+        grid-template-columns: 32px auto;
+
+        >span {
+            font-family: $font-title;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 120%;
+
+            color: $color-black;
+
+            text-align: right;
+
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+
+            place-self: center end;
+        }
+
+        >h5 {
+            font-family: $font-title;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 120%;
+
+            color: $color-black;
+
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+
+        >p {
+            font-family: $font-text;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 160%;
+
+            color: $color-black;
+
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+        }
+    }
+
+    /* fourth block */
+    &-gallery {
+        width: 100%;
+        display: grid;
+
+        padding: 0 $padding-tablet;
+
+        @include breakpoint(laptop) {
+            padding: 0 $padding-web;
+        }
+
+        margin-bottom: 60px;
     }
 }

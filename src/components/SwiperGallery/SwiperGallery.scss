@@ -1,0 +1,31 @@
+@import '../../assets/variables.scss';
+
+.SwiperGallery{
+    display: grid;
+
+    &-container{
+        width: 100%;
+        height: fit-content;
+        border-radius: 8px;
+
+        position: relative;
+    }
+
+    &-img{
+        width: 100%;
+    }
+
+    .ButtonLeft{
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        z-index: 1;
+    }
+
+    .ButtonRight{
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1;
+    }
+}

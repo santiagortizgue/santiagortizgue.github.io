@@ -51,13 +51,6 @@
         width: auto;
         height: auto;
 
-        >div {
-            margin-bottom: 8px;
-            margin-right: 8px;
-        }
-
-        &:last-child {
-            margin: 0;
-        }
+        gap: 8px;
     }
 }

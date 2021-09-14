@@ -59,3 +59,103 @@
         }
     }
 }
+
+.GithubButton{
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    padding: 16px;
+
+    width: fit-content;
+    height: fit-content;
+
+    background-color: $color-black;
+    border-radius: 4px;
+
+    transition: .2s ease-in-out all;
+
+    text-decoration: none;
+
+    &:hover{
+        background-color: $color-aguacate-100;
+    }
+
+    >svg{
+        width: 20px;
+        height: 20px;
+
+        >path{
+            stroke: $color-white;
+        }
+    }
+}
+
+.BehanceButton{
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    padding: 16px;
+
+    width: fit-content;
+    height: fit-content;
+
+    background-color: $color-black;
+    border-radius: 4px;
+
+    transition: .2s ease-in-out all;
+
+    text-decoration: none;
+
+    &:hover{
+        background-color: $color-aguacate-100;
+    }
+
+    >svg{
+        width: 20px;
+        height: 20px;
+
+        >path{
+            fill: $color-white;
+        }
+    }
+}
+
+.LinkButton {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+
+    column-gap: 12px;
+    width: fit-content;
+    height: fit-content;
+
+    padding: 16px 20px;
+
+    background-color: $color-valeria-100;
+    border-radius: 4px;
+
+    font-family: $font-text;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 110%;
+
+    color: $color-white;
+
+    transition: .2s ease-in-out all;
+
+    text-decoration: none;
+
+    &:hover{
+        background-color: $color-aguacate-100;
+    }
+
+    >svg{
+        width: 20px;
+        height: 20px;
+
+        >path{
+            stroke: $color-white;
+        }
+    }
+}
