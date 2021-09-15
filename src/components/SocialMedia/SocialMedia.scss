@@ -11,6 +11,8 @@
     flex-direction: column;
     justify-content: flex-start;
 
+    gap: 24px;
+
     @include breakpoint(tablet){
         width: 100%;
         flex-direction: row;
@@ -21,6 +23,7 @@
 
     @include breakpoint(laptop){
         padding: 60px $padding-web;
+        gap: 32px;
     }
 
     @include breakpoint(desktop){
@@ -38,23 +41,6 @@
 
         width: auto;
         height: auto;
-
-        margin-bottom: 20px;
-
-        @include breakpoint(tablet){
-            margin-bottom: 20px;
-            margin-right: 20px;
-        }
-
-        @include breakpoint(desktop){
-            margin: 0;
-            padding: 16px;
-        }
-
-        @include breakpoint(large_desktop){
-            padding: 0;
-            margin-right: 60px;
-        }
 
         &:hover{
             .SocialMedia-linkData >p{
@@ -114,13 +100,6 @@
         flex-direction: column;
         justify-content: flex-start;
 
-        @include breakpoint(desktop){
-            padding: 16px;
-        }
-
-        @include breakpoint(large_desktop){
-            padding: 0;
-        }
     }
 
     &-smallLink{

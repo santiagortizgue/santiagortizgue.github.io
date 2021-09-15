@@ -103,7 +103,7 @@ const Project = () => {
                             <div className="Project-topics">
                                 {project.topics.map((topic)=>(
                                     <article key={topic.id} className="Project-topic">
-                                        <span>{`0${topic.id}`}</span>
+                                        <span>{`0${topic.id + 1}`}</span>
                                         <h5>{topic.name}</h5>
                                         <p>{topic.text}</p>
                                     </article>

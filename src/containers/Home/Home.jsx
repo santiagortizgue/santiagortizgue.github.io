@@ -28,6 +28,7 @@ const Home = () => {
 
   return (
     <div className="Home">
+
       <div className="Home-top">
         <div className="Home-imgContainer">
           <div className="Home-gradient"></div>
@@ -44,7 +45,9 @@ const Home = () => {
         <h2 className="Home-title">Hi, I’m <span>Santiago</span>. My creativity allows me to build experiences & interfaces.</h2>
         <Button onClick={handleContact} text="Contact me"/>
       </div>
+      
       <SocialMedia />
+
       <div className="Home-recentContainer">
         <ContextTag text="Recent Project" />
         {recent ?
@@ -58,6 +61,7 @@ const Home = () => {
           :
           <h5>Loading recent Project</h5>}
       </div>
+    
     </div>
   );
 };

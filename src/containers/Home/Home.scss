@@ -1,44 +1,72 @@
 @import '../../assets/variables.scss';
 
-.Home{
+.Home {
     width: 100%;
     height: auto;
 
-    &-top{
+    &-top {
         background-color: $color-white;
         width: 100%;
         min-height: 90vh;
         height: auto;
-        padding: 0 $padding-tablet;
+        padding: 60px $padding-tablet;
 
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
-        justify-content: flex-start;
+        justify-content: center;
         align-content: center;
         align-items: center;
 
-        padding-top: 80px;
+        @include breakpoint(tablet) {
+            padding: 40px $padding-web;
+        }
 
-        @include breakpoint(laptop){
-            padding: 0 $padding-web;
+        @include breakpoint(laptop) {
+            padding: 60px $padding-web;
+        }
+
+        @include breakpoint(desktop) {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 1fr auto auto 1fr;
+            column-gap: 20px;
         }
     }
 
-    &-imgContainer{
-        width: 280px;
-        height: 280px;
+    &-imgContainer {
+        width: 240px;
+        height: 240px;
 
         margin-bottom: 40px;
 
         position: relative;
 
-        @include breakpoint(laptop){
-            margin: 0;
+        @include breakpoint(laptop) {
+            margin-bottom: 40px;
+
+            width: 280px;
+            height: 280px;
+        }
+
+        @include breakpoint(desktop) {
+            grid-row: 2 / 4;
+            grid-column: 2 / 6;
+
+            place-self: center;
+            width: 320px;
+            height: 320px;
+
+            margin-bottom: 0;
+        }
+
+        @include breakpoint(large_desktop) {
+            width: 440px;
+            height: 440px;
         }
     }
 
-    &-gradient{
+    &-gradient {
         width: 100%;
         height: 100%;
 
@@ -48,14 +76,14 @@
         border-radius: 50%;
     }
 
-    &-img{
+    &-img {
         width: 100%;
 
         position: absolute;
         bottom: 0;
     }
 
-    &-roleTag{
+    &-roleTag {
         position: absolute;
 
         background: $color-white;
@@ -63,18 +91,17 @@
 
         box-shadow: 0px 10px 30px 0px rgba($color-valeria-100, 0.16);
 
-
         padding: 10px 20px;
-        width: auto;
-        height: auto;
+        width: fit-content;
+        height: fit-content;
 
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-content: center;
         align-items: center;
-        
-        >h4{
+
+        >h4 {
             color: $color-black;
             font-size: 16px;
             font-weight: 700;
@@ -84,26 +111,46 @@
             margin-bottom: 4px;
         }
 
-        >p{
+        >p {
             color: $color-valeria-100;
             font-size: 12px;
             font-weight: 400;
             line-height: 110%;
             font-family: $font-text;
         }
+
+        @include breakpoint(large_desktop) {
+            border-radius: 60px;
+
+            >h4 {
+                font-size: 20px;
+            }
+    
+            >p {
+                font-size: 16px;
+            }
+        }
     }
 
-    .tag1{
+    .tag1 {
         bottom: 10px;
-        left: 10px;
+        left: -8%;
+
+        @include breakpoint(desktop) {
+            bottom: 20px;
+        }
+
+        @include breakpoint(large_desktop) {
+            bottom: 40px;
+        }
     }
 
-    .tag2{
+    .tag2 {
         top: 50%;
-        right: -10%;
+        right: -8%;
     }
 
-    &-title{
+    &-title {
         font-family: $font-title;
         font-size: 24px;
         color: $color-black;
@@ -115,16 +162,41 @@
 
         margin-bottom: 32px;
 
-        @include breakpoint(laptop){
-            margin: 0;
+        @include breakpoint(laptop) {
+            margin-bottom: 32px;
         }
 
-        >span{
+        @include breakpoint(desktop) {
+            grid-row: 2 / 3;
+            grid-column: 7 / 12;
+
+            text-align: left;
+
+            place-self: end;
+
+            font-size: 32px;
+        }
+
+        @include breakpoint(large_desktop) {
+            font-size: 44px;
+        }
+
+        >span {
             color: $color-valeria-100;
         }
     }
 
-    &-recentContainer{
+    &-top>.Button {
+        @include breakpoint(desktop) {
+            grid-row: 3 / 4;
+            grid-column: 7 / 12;
+
+            place-self: start;
+        }
+    }
+
+    /* OTHER BLOCK */
+    &-recentContainer {
         background-color: $color-black;
         width: 100%;
         height: auto;
@@ -133,26 +205,66 @@
         display: flex;
         flex-direction: column;
 
-        @include breakpoint(laptop){
+        @include breakpoint(laptop) {
             padding: 0 $padding-web;
+            padding-bottom: 40px;
+
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: auto 1fr;
+            column-gap: 20px;
+        }
+
+        @include breakpoint(desktop) {
+            padding-bottom: 60px;
         }
     }
 
-    &-recent{
+    .ContextTag {
+
+        @include breakpoint(laptop) {
+            grid-row: 1 / 2;
+            grid-column: 1 / 11;
+        }
+
+    }
+
+    &-recent {
         width: 100%;
         background-color: $color-white;
         border-radius: 8px;
         height: auto;
 
         padding: 32px 20px;
+
+        @include breakpoint(laptop) {
+            grid-row: 2 / end;
+            grid-column: 1 / 11;
+
+            padding: 0;
+
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: 40px repeat(4, auto) 40px;
+            column-gap: 20px;
+        }
     }
 
-    &-recentImage{
+    &-recentImage {
         width: 100%;
         margin-bottom: 20px;
+
+        @include breakpoint(laptop) {
+            margin: 0;
+
+            grid-row: 1 / 7;
+            grid-column: 1 / 6;
+
+            place-self: center;
+        }
     }
 
-    &-recentTitle{
+    &-recentTitle {
         font-size: 32px;
         font-family: $font-title;
         color: $color-black;
@@ -160,9 +272,16 @@
         line-height: 120%;
 
         margin-bottom: 20px;
+
+        @include breakpoint(laptop) {
+            grid-row: 2 / 3;
+            grid-column: 6 / 10;
+
+            place-self: start;
+        }
     }
 
-    &-recentAbout{
+    &-recentAbout {
         font-size: 16px;
         font-family: $font-text;
         color: $color-black;
@@ -170,9 +289,30 @@
         line-height: 160%;
 
         margin-bottom: 20px;
+
+        @include breakpoint(laptop) {
+            grid-row: 3 / 4;
+            grid-column: 6 / 10;
+
+            place-self: start;
+        }
     }
 
-    .MadeTag{
+    .MadeTag {
         margin-bottom: 40px;
+
+        @include breakpoint(laptop) {
+            grid-row: 4 / 5;
+            grid-column: 6 / 10;
+            place-self: start;
+        }
+    }
+
+    &-recent>.Button {
+        @include breakpoint(laptop) {
+            grid-row: 5 / 6;
+            grid-column: 6 / 10;
+            place-self: start;
+        }
     }
 }

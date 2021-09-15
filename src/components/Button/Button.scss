@@ -15,6 +15,9 @@
 
     cursor: pointer;
 
+    width: fit-content;
+    height: fit-content;
+
     &:hover {
         background-color: $color-aguacate-100;
     }
