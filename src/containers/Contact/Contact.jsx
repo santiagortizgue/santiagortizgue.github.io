@@ -22,7 +22,9 @@ const Contact = () => {
             <div className="Contact-top">
                 <div className="Contact-container">
                     <h3>{title1}<span>{title2}</span></h3>
+
                     <p>Fill in the form or <a href="mailto:santiagortizgue@gmail.com" target="_blank" rel="noreferrer">Send me an Email</a></p>
+                    
                     <div className="Contact-items">
                         <div className="Contact-item">
                             <span><img src="/svg/mail.svg" alt="email icon" /></span>
@@ -33,7 +35,9 @@ const Contact = () => {
                             <p>Cali, Colombia</p>
                         </div>
                     </div>
-                    <h4>Send me a Message</h4>
+                    
+                    <h4 className="Contact-formTitle">Send me a Message</h4>
+                    
                     <form ref={formData} className="Contact-form" onSubmit={handleSubmit}>
                         <input className="Contact-input" type="text" name="name" placeholder="Name..." />
                         <input className="Contact-input" type="text" name="subject" placeholder="Subject..." />

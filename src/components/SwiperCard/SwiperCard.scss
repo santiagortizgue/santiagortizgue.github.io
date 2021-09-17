@@ -19,6 +19,15 @@
         row-gap: 40px;
 
         position: relative;
+
+
+        @include breakpoint(desktop) {
+            padding: 32px;
+        }
+
+        @include breakpoint(large_desktop) {
+            padding: 36px;
+        }
     }
 
     &-swiper {
@@ -63,7 +72,7 @@
 
     }
 
-    &-controllers{
+    &-controllers {
         width: 100%;
         display: flex;
         flex-direction: row;

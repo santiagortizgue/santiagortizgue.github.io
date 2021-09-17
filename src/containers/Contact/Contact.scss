@@ -12,8 +12,9 @@
         padding: 20px $padding-tablet;
 
         @include breakpoint(laptop) {
-            padding: 0 $padding-web;
+            padding: 20px $padding-web;
         }
+
     }
 
     &-container {
@@ -24,6 +25,13 @@
         align-self: stretch;
         grid-template-rows: 1fr repeat(5, auto) 1fr;
         row-gap: 40px;
+
+        @include breakpoint(desktop) {
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 1fr repeat(4, auto) 1fr;
+            row-gap: 28px;
+            column-gap: 20px;
+        }
 
         >h3 {
             display: grid;
@@ -44,6 +52,18 @@
 
             >span {
                 color: $color-valeria-100;
+            }
+
+            @include breakpoint(desktop) {
+                grid-column: 2 / 7;
+                grid-row: 2 / 4;
+                text-align: left;
+                place-self: end start;
+                font-size: 60px;
+            }
+
+            @include breakpoint(large_desktop) {
+                font-size: 72px;
             }
         }
 
@@ -69,6 +89,18 @@
                     color: $color-valeria-100;
                 }
             }
+
+            @include breakpoint(desktop) {
+                grid-column: 2 / 7;
+                grid-row: 4 / 5;
+                text-align: left;
+                place-self: start;
+
+                font-size: 20px;
+
+                margin-bottom: 20px;
+            }
+
         }
 
         >div {
@@ -76,14 +108,17 @@
             grid-row: 4 / 5;
             height: auto;
 
-            padding: 0 32px;
-
             display: grid;
             grid-template-rows: 1fr 1fr;
             row-gap: 24px;
 
             &:last-child {
                 margin: 0 !important;
+            }
+
+            @include breakpoint(desktop) {
+                grid-column: 2 / 7;
+                grid-row: 5 / 6;
             }
         }
 
@@ -96,11 +131,31 @@
             color: $color-black;
             grid-row: 5 / 6;
 
-            padding: 0 32px;
+            @include breakpoint(desktop) {
+                grid-column: 8 / 12;
+                grid-row: 2 / 3;
+            }
         }
 
         >form {
             grid-row: 6 / 7;
+
+            @include breakpoint(desktop) {
+                grid-column: 8 / 12;
+                grid-row: 3 / 6;
+            }
+        }
+    }
+
+    &-items {
+        padding: 0 32px;
+
+        @include breakpoint(laptop) {
+            padding: 0 100px;
+        }
+
+        @include breakpoint(desktop) {
+            padding: 0;
         }
     }
 
@@ -137,6 +192,31 @@
             line-height: 120%;
             color: $color-black;
         }
+
+        @include breakpoint(desktop) {
+            >p {
+                font-size: 16px;
+            }
+        }
+
+        @include breakpoint(large_desktop) {
+            >p {
+                font-size: 20px;
+            }
+        }
+        
+    }
+
+    &-formTitle {
+        padding: 0 32px;
+
+        @include breakpoint(laptop) {
+            padding: 0 100px;
+        }
+
+        @include breakpoint(desktop) {
+            padding: 0;
+        }
     }
 
     &-form {
@@ -147,6 +227,14 @@
         flex-direction: column;
 
         gap: 20px;
+
+        @include breakpoint(laptop) {
+            padding: 0 100px;
+        }
+
+        @include breakpoint(desktop) {
+            padding: 0;
+        }
     }
 
     &-input {

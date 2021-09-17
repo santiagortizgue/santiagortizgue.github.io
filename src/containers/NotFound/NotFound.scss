@@ -13,7 +13,7 @@
         padding: 20px $padding-tablet;
 
         @include breakpoint(laptop){
-            padding: 0 $padding-web;
+            padding: 20px $padding-web;
         }
     }
 
@@ -28,6 +28,17 @@
         align-self: stretch;
         grid-template-rows: 1fr auto auto auto 1fr; 
 
+        @include breakpoint(laptop){
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: 1fr auto auto 1fr; 
+            column-gap: 20px;
+        }
+
+        @include breakpoint(desktop){
+            grid-template-columns: repeat(12, 1fr);
+        }
+
         >img {
             width: 70%;
             max-width: 260px;
@@ -37,6 +48,19 @@
             display: grid;
             grid-row: 2 / 3;
             place-self: center;
+
+            @include breakpoint(laptop){
+                grid-row: 2 / 4;
+                grid-column: 3 / 6;
+                margin-bottom: 0;
+                place-self: center end;
+                width: 100%;
+            }
+
+            @include breakpoint(desktop){
+                grid-column: 2 / 7;
+                max-width: 320px;
+            }
         }
 
         >h3 {
@@ -60,12 +84,38 @@
             >span {
                 color: $color-valeria-100;
             }
+
+            @include breakpoint(laptop){
+                grid-row: 2 / 3;
+                grid-column: 6 / 10;
+                place-self: end start;
+                text-align: left;
+            }
+
+            @include breakpoint(desktop){
+                grid-column: 7 / 11;
+                font-size: 56px;
+            }
+
+            @include breakpoint(large_desktop){
+                font-size: 66px;
+            }
         }
 
         >.Button {
             display: grid;
             grid-row: 4 / 5;
             place-self: center;
+
+            @include breakpoint(laptop){
+                grid-row: 3 / 4;
+                grid-column: 6 / 10;
+                place-self: start;
+            }
+
+            @include breakpoint(desktop){
+                grid-column: 7 / 11;
+            }
         }
     }
 }
