@@ -13,7 +13,7 @@
         padding: 20px $padding-tablet;
 
         @include breakpoint(laptop){
-            padding: 0 $padding-web;
+            padding: 20px $padding-web;
         }
     }
 
@@ -29,7 +29,14 @@
         grid-template-rows: 1fr auto auto 1fr; 
     
         @include breakpoint(laptop){
-            padding: 0 $padding-web;
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: 1fr; 
+            column-gap: 20px;
+        }
+
+        @include breakpoint(desktop){
+            grid-template-columns: repeat(12, 1fr);
         }
 
         >img{
@@ -41,6 +48,19 @@
             display: grid;
             grid-row: 2 / 3;
             place-self: center;
+
+            @include breakpoint(laptop){
+                grid-row: 1;
+                grid-column: 3 / 6;
+                margin-bottom: 0;
+                place-self: center end;
+                width: 100%;
+            }
+
+            @include breakpoint(desktop){
+                grid-column: 2 / 7;
+                max-width: 320px;
+            }
         }
 
         >h3{
@@ -62,6 +82,21 @@
 
             >span{
                 color: $color-valeria-100;
+            }
+
+            @include breakpoint(laptop){
+                grid-row: 1;
+                grid-column: 6 / 9;
+                place-self: center start;
+            }
+
+            @include breakpoint(desktop){
+                grid-column: 7 / 10;
+                font-size: 56px;
+            }
+
+            @include breakpoint(large_desktop){
+                font-size: 66px;
             }
         }
     }
