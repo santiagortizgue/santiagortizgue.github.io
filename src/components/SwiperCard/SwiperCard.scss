@@ -2,7 +2,7 @@
 
 .SwiperCard {
     width: 100%;
-    height: auto;
+    height: fit-content;
 
     display: grid;
     grid-template-rows: repeat(2, auto);

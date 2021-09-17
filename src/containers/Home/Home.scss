@@ -281,6 +281,8 @@
         @include breakpoint(large_desktop) {
             grid-row: 1 / 6;
             grid-column: 1 / 5;
+
+            max-width: 480px;
         }
     }
 
@@ -348,6 +350,8 @@
         @include breakpoint(large_desktop) {
             grid-row: 4 / 5;
             grid-column: 8 / 10;
+            place-self: end start;
+            margin-bottom: 0;
         }
     }
 
@@ -361,6 +365,7 @@
         @include breakpoint(large_desktop) {
             grid-row: 4 / 5;
             grid-column: 5 / 8;
+            place-self: end start;
         }
     }
 }

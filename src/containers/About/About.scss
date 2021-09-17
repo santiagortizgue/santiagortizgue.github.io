@@ -18,9 +18,21 @@
         align-content: center;
         align-items: flex-start;
 
-        @include breakpoint(laptop) {
-            padding: 0 $padding-web;
+        @include breakpoint(tablet) {
+            padding: 40px $padding-web;
         }
+
+        @include breakpoint(desktop) {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 1fr repeat(3, auto) 1fr;
+            column-gap: 20px;
+        }
+
+        @include breakpoint(large_desktop) {
+            padding: 60px $padding-web;
+        }
+
     }
 
     &-img {
@@ -29,9 +41,27 @@
 
         border-radius: 8px;
 
-        @include breakpoint(laptop) {
-            margin: 0;
+        @include breakpoint(tablet) {
+            max-width: 420px;
+            place-self: center;
         }
+
+        @include breakpoint(laptop) {
+            margin-bottom: 40px;
+        }
+
+        @include breakpoint(desktop) {
+            grid-column: 8 / span 4;
+            grid-row: 2 / 5;
+
+            margin-bottom: 0;
+        }
+
+        @include breakpoint(large_desktop) {
+            font-size: 20px;
+            max-width: 520px;
+        }
+
     }
 
     &-title {
@@ -42,6 +72,17 @@
         font-weight: 700;
 
         margin-bottom: 20px;
+
+        @include breakpoint(desktop) {
+            grid-column: 2 / 7;
+            grid-row: 2 / 3;
+
+            place-self: end start;
+        }
+
+        @include breakpoint(large_desktop) {
+            font-size: 36px;
+        }
     }
 
     &-text {
@@ -58,6 +99,18 @@
             color: $color-valeria-100;
             font-weight: 600;
         }
+
+        @include breakpoint(desktop) {
+            grid-column: 2 / 7;
+            grid-row: 3 / 4;
+
+            place-self: start stretch;
+        }
+
+        @include breakpoint(large_desktop) {
+            font-size: 20px;
+        }
+
     }
 
     &-location {
@@ -79,6 +132,17 @@
             color: $color-black;
             font-family: $font-text;
             font-weight: 400;
+
+            @include breakpoint(large_desktop) {
+                font-size: 20px;
+            }
+        }
+
+        @include breakpoint(desktop) {
+            grid-column: 2 / 7;
+            grid-row: 4 / 5;
+
+            place-self: start start;
         }
     }
 
@@ -93,6 +157,46 @@
 
         @include breakpoint(laptop) {
             padding: 0 $padding-web;
+            padding-bottom: 40px;
+
+            grid-template-columns: repeat(10, 1fr);
+            column-gap: 20px;
+        }
+
+        @include breakpoint(desktop) {
+            grid-template-columns: repeat(12, 1fr);
+        }
+
+        .SwiperCard:nth-child(1) {
+
+            @include breakpoint(laptop) {
+                grid-column: 3 / 9;
+            }
+
+            @include breakpoint(desktop) {
+                grid-column: 1 / 7;
+            }
+
+            @include breakpoint(large_desktop) {
+                grid-column: 2 / 7;
+            }
+        }
+
+        .SwiperCard:nth-child(2) {
+
+            @include breakpoint(laptop) {
+                grid-column: 3 / 9;
+            }
+
+            @include breakpoint(desktop) {
+                margin-top: 60px;
+                grid-column: 7 / 13;
+            }
+
+            @include breakpoint(large_desktop) {
+                margin-top: 88px;
+                grid-column: 7 / 12;
+            }
         }
     }
 }
