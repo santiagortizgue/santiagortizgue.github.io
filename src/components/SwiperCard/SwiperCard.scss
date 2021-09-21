@@ -57,6 +57,10 @@
 
             color: $color-black;
             margin-bottom: 16px;
+
+            @include breakpoint(large_desktop) {
+                font-size: 24px;
+            }
         }
 
         >p {
@@ -68,6 +72,10 @@
             line-height: 160%;
 
             color: $color-black;
+
+            @include breakpoint(large_desktop) {
+                font-size: 20px;
+            }
         }
 
     }

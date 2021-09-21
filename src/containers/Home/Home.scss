@@ -17,6 +17,7 @@
         justify-content: center;
         align-content: center;
         align-items: center;
+        
 
         @include breakpoint(tablet) {
             padding: 40px $padding-web;

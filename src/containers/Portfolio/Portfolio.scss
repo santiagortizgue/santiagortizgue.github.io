@@ -27,7 +27,17 @@
 
         padding: 40px $padding-tablet;
 
+        @include breakpoint(tablet){
+            padding: 24px $padding-tablet;
+
+            
+        }
+
         @include breakpoint(laptop){
+            padding: 24px $padding-web;
+        }
+
+        @include breakpoint(desktop){
             padding: 40px $padding-web;
         }
     }

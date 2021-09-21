@@ -19,6 +19,10 @@
         align-items: flex-start;
 
         @include breakpoint(tablet) {
+            padding: 24px $padding-tablet;
+        }
+
+        @include breakpoint(laptop) {
             padding: 40px $padding-web;
         }
 

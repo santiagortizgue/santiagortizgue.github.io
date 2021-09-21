@@ -12,12 +12,20 @@
 
     width: fit-content;
 
+    @include breakpoint(large_desktop) {
+        padding: 8px 16px;
+    }
+
     >p {
         font-family: $font-text;
         font-style: normal;
         font-weight: bold;
         font-size: 14px;
         line-height: 140%;
+
+        @include breakpoint(large_desktop) {
+            font-size: 16px;
+        }
     }
 
     &-ui{
