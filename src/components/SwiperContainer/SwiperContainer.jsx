@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './SwiperContainer.scss';
 
 import ProjectCard from '../ProjectCard/ProjectCard';
 import { ButtonLeft, ButtonRight } from '../SwiperActions/SwiperActions';
+
+import ConceptCard from '../ConceptCard/ConceptCard';
+import PlaceholderCard from '../PlaceholderCard/PlaceholderCard';
 
 import useSwiperRef from '../../hooks/useSwiperRef';
 
@@ -14,8 +16,8 @@ import SwiperCore, { Pagination } from 'swiper';
 // Import Swiper styles
 import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss';
-import ConceptCard from '../ConceptCard/ConceptCard';
-import PlaceholderCard from '../PlaceholderCard/PlaceholderCard';
+
+import './SwiperContainer.scss';
 
 // install Swiper modules
 SwiperCore.use([Pagination]);
@@ -29,6 +31,12 @@ const SwiperContainer = ({ data, isProject, isVariant }) => {
 
     useEffect(() => {
         setItems(data);
+
+        window.addEventListener("resize", handleOnWindowChange);
+
+        return () => {
+            window.removeEventListener('resize', handleOnWindowChange);
+        }
     }, [data]);
 
     const placeholder = {
@@ -44,19 +52,23 @@ const SwiperContainer = ({ data, isProject, isVariant }) => {
         loop: true
     }
 
+    const handleOnWindowChange = () => {
+        console.log(window.innerWidth);
+    }
+
     return (
         <div className="SwiperContainer">
 
             <Swiper {...params} onSwiper={(sw) => setSwiper(sw)}>
-            
-                {items.length === 0 ? 
-                 <PlaceholderCard data={placeholder} isVariant={isVariant}/>
-                : ''}
+
+                {items.length === 0 ?
+                    <PlaceholderCard data={placeholder} isVariant={isVariant} />
+                    : ''}
 
                 {items.map((item) => (
                     <SwiperSlide key={item.id} >
-                        { isProject ? <ProjectCard data={item} /> : <ConceptCard data={item} />}
-                        
+                        {isProject ? <ProjectCard data={item} /> : <ConceptCard data={item} />}
+
                     </SwiperSlide>
                 ))}
             </Swiper>
