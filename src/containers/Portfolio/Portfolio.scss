@@ -29,8 +29,6 @@
 
         @include breakpoint(tablet){
             padding: 24px $padding-tablet;
-
-            
         }
 
         @include breakpoint(laptop){
@@ -39,11 +37,18 @@
 
         @include breakpoint(desktop){
             padding: 40px $padding-web;
+
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(2, auto);
+            column-gap: 20px;
+            row-gap: 40px;
         }
     }
 
     &-title{
         width: 100%;
+        height: fit-content;
         
         font-family: $font-title;
         font-style: normal;
@@ -54,6 +59,12 @@
         color: $color-black;
 
         margin-bottom: 40px;
+
+        @include breakpoint(desktop){
+            grid-row: 1;
+            grid-column: 2 / span 6;
+            margin-bottom: 0;
+        }
     }
 
     &-title2{

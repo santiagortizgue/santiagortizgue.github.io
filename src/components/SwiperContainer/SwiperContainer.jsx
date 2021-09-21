@@ -26,12 +26,14 @@ const SwiperContainer = ({ data, isProject, isVariant }) => {
 
     const [items, setItems] = useState(data);
     const [swiper, setSwiper] = useState(null);
+    const [slidesPerView, setSlidesPerView] = useState(1);
 
     const [paginationEl, paginationRef] = useSwiperRef();
 
     useEffect(() => {
         setItems(data);
 
+        handleOnWindowChange();
         window.addEventListener("resize", handleOnWindowChange);
 
         return () => {
@@ -46,14 +48,27 @@ const SwiperContainer = ({ data, isProject, isVariant }) => {
     };
 
     const params = {
-        spaceBetween: 20,
-        slidesPerView: 1,
+        spaceBetween: 32,
+        slidesPerView: slidesPerView,
         pagination: { clickable: false, el: paginationEl },
         loop: true
     }
 
     const handleOnWindowChange = () => {
-        console.log(window.innerWidth);
+        if (window.innerWidth > 1440) {
+            setSlidesPerView(4);
+            return;
+        }
+        if (window.innerWidth > 1024) {
+            setSlidesPerView(3);
+            return;
+        }
+        if (window.innerWidth > 768) {
+            setSlidesPerView(2);
+            return;
+        }
+
+        setSlidesPerView(1);
     }
 
     return (
