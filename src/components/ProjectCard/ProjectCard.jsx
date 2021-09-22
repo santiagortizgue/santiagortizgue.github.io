@@ -31,7 +31,7 @@ const ProjectCard = ({ data }) => {
             <h4>{data.name}</h4>
             <p>{changeString(data.about)}</p>
             <div className="ProjectCard-roles">
-                {data.work_roles.map((role, index) => (
+                {data.work_roles.length > 0 && data.work_roles.map((role, index) => (
                     <RoleTag key={index} data={findRole(role)} />
                 ))}
             </div>
