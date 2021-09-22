@@ -63,6 +63,8 @@ const useInitialState = () => {
     }
 
     const createMessage = async (data) => {
+        await timeout(1500);
+
         try {
             const response = await axios.post(`${API}/messages`,
             data, {
@@ -70,6 +72,7 @@ const useInitialState = () => {
                     Authorization: `Bearer ${token}`,
                 },
             });
+
             return {result: 'success', response};
 
         } catch (error) {
@@ -94,4 +97,8 @@ export default useInitialState;
 
 function compareId(a, b) {
     return b.id - a.id;
+}
+
+function timeout(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }

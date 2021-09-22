@@ -1,8 +1,22 @@
 import React, { useRef, useEffect, useContext } from 'react';
 import AppContext from '../../context/AppContext';
-import { toast } from 'react-toastify';
+import { cssTransition, toast } from 'react-toastify';
 
 import './Contact.scss';
+import "animate.css";
+
+const bounce = cssTransition({
+    enter: "animate__animated animate__bounceIn",
+    exit: "animate__animated animate__bounceOut"
+});
+
+const toastConfig = {
+    autoClose: 4000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    position: toast.POSITION.TOP_RIGHT,
+    transition: bounce
+}
 
 const Contact = () => {
     const title1 = 'Hello!';
@@ -12,12 +26,7 @@ const Contact = () => {
     const { createMessage } = useContext(AppContext);
 
     let notifyPromise = null;
-    const toastConfig = {
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        position: toast.POSITION.TOP_RIGHT
-    }
+
 
     //if the second value of useEffect is empty array [], the behavior its the same as componentDidMount
     useEffect(() => {
@@ -40,7 +49,7 @@ const Contact = () => {
         }
 
         //display the toast
-        notifyPromise = toast.loading("Please wait...");
+        notifyPromise = toast.loading("Please wait...", {transition: bounce});
 
         //post the entry, update the toast and clean form inputs
         createMessage(new_message).then((action) => {
