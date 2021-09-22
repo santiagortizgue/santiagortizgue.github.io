@@ -1,5 +1,8 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import {
+    useEffect,
+    useState
+} from 'react';
 import initialState from '../initialState';
 
 const useInitialState = () => {
@@ -7,11 +10,15 @@ const useInitialState = () => {
     const [projects, setProjects] = useState([]);
     const [recent, setRecent] = useState(null);
     const [project, setProject] = useState(null);
-    const { API } = state;
+    const {
+        API
+    } = state;
+    const [token, setToken] = useState(null);
 
     useEffect(() => {
+        getUser();
         getData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const getData = async () => {
@@ -21,6 +28,19 @@ const useInitialState = () => {
             setProjects(items);
         } catch (error) {
             console.log("Error getting the projects", error.message);
+        }
+    }
+
+    const getUser = async () => {
+        try {
+            const response = await axios.post(`${API}/auth/local`, {
+                identifier: process.env.REACT_APP_EMAIL,
+                password: process.env.REACT_APP_PASSWORD,
+            });
+            setToken(response.data.jwt);
+
+        } catch (error) {
+            console.log("Error trying to log in", error.message);
         }
     }
 
@@ -42,6 +62,21 @@ const useInitialState = () => {
         }
     }
 
+    const createMessage = async (data) => {
+        try {
+            const response = await axios.post(`${API}/messages`,
+            data, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(response, data);
+
+        } catch (error) {
+            console.log("Error trying to create a message", error.message);
+        }
+    }
+
     return {
         getProject,
         getRecent,
@@ -49,6 +84,7 @@ const useInitialState = () => {
         project,
         projects,
         state,
+        createMessage
     };
 };
 

@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
+import AppContext from '../../context/AppContext';
 import './Contact.scss';
 
 const Contact = () => {
@@ -6,6 +7,7 @@ const Contact = () => {
     const title2 = 'Let’s Talk.';
 
     const formData = useRef(null);
+    const { createMessage } = useContext(AppContext);
 
     //if the second value of useEffect is empty array [], the behavior its the same as componentDidMount
     useEffect(() => {
@@ -15,6 +17,8 @@ const Contact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData);
+
+        createMessage({name: 'hola'});
     }
 
     return (
