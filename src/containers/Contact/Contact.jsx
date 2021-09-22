@@ -10,23 +10,38 @@ const bounce = cssTransition({
     exit: "animate__animated animate__bounceOut"
 });
 
-const toastConfig = {
+const toastSuccessConfig = {
     autoClose: 4000,
     hideProgressBar: false,
     closeOnClick: true,
     position: toast.POSITION.TOP_RIGHT,
-    transition: bounce
+    transition: bounce,
+    className: 'ToastSuccess',
+    progressClassName: 'ToastSuccess-bar'
+}
+
+const toastErrorConfig = {
+    autoClose: 4000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    position: toast.POSITION.TOP_RIGHT,
+    transition: bounce,
+    className: 'ToastError',
+    progressClassName: 'ToastError-bar'
+}
+
+const defaulToastConfig = {
+    position: toast.POSITION.TOP_RIGHT,
+    transition: bounce,
+    className: 'Toast',
+    progressClassName: 'Toast-bar'
 }
 
 const Contact = () => {
-    const title1 = 'Hello!';
-    const title2 = 'Let’s Talk.';
-
     const form = useRef(null);
     const { createMessage } = useContext(AppContext);
 
-    let notifyPromise = null;
-
+    let notify = null;
 
     //if the second value of useEffect is empty array [], the behavior its the same as componentDidMount
     useEffect(() => {
@@ -49,7 +64,7 @@ const Contact = () => {
         }
 
         //display the toast
-        notifyPromise = toast.loading("Please wait...", {transition: bounce});
+        notify = toast.loading("Please wait...", defaulToastConfig);
 
         //post the entry, update the toast and clean form inputs
         createMessage(new_message).then((action) => {
@@ -84,14 +99,14 @@ const Contact = () => {
         form.current.reset();
     }
 
-    const notifySucces = () => toast.update(notifyPromise, { render: "Good! I'll read it :D", type: 'success', isLoading: false, ...toastConfig });
-    const notifyError = () => toast.update(notifyPromise, { render: "Ouch! Something went wrong", type: 'error', isLoading: false, ...toastConfig });
+    const notifySucces = () => toast.update(notify, { render: "Good! I'll read it :D", type: 'success', isLoading: false, ...toastSuccessConfig });
+    const notifyError = () => toast.update(notify, { render: "Ouch! Something went wrong", type: 'error', isLoading: false, ...toastErrorConfig });
 
     return (
         <div className="Contact">
             <div className="Contact-top">
                 <div className="Contact-container">
-                    <h3>{title1}<span>{title2}</span></h3>
+                    <h3>Hello!<span>Let’s Talk.</span></h3>
 
                     <p>Fill in the form or <a href="mailto:santiagortizgue@gmail.com" target="_blank" rel="noreferrer">Send me an Email</a></p>
 

@@ -305,3 +305,49 @@
         }
     }
 }
+
+.Toast{
+    font-family: $font-text !important;
+    color: $color-gray-80 !important;
+
+    box-shadow: 0px 8px 12px rgba($color-valeria-100, 0.1) !important;
+
+    .Toastify__spinner{
+        border-color: $color-valeria-40 !important;
+        border-right-color: $color-valeria-100 !important;
+    }
+}
+
+.ToastSuccess{
+    font-family: $font-text !important;
+    color: $color-gray-80 !important;
+
+    box-shadow: 0px 8px 12px rgba($color-salbi-100, 0.1) !important;
+
+    &-bar{
+        background: $color-salbi-100 !important;
+    }
+
+    svg{
+        >path{
+            fill: $color-salbi-100 !important;
+        }
+    }
+}
+
+.ToastError{
+    font-family: $font-text !important;
+    color: $color-gray-80 !important;
+
+    box-shadow: 0px 8px 12px rgba($color-salmon-100, 0.1) !important;
+
+    &-bar{
+        background: $color-salmon-100 !important;
+    }
+
+    svg{
+        >path{
+            fill: $color-salmon-100 !important;
+        }
+    }
+}
