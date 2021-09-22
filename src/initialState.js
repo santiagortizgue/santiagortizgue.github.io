@@ -195,5 +195,5 @@ export default {
             id: 1
         }]
     },
-    API: 'https://santiagortizgue-strapi.herokuapp.com'
+    API: process.env.REACT_APP_API_URL
 };
