@@ -310,7 +310,8 @@
     font-family: $font-text !important;
     color: $color-gray-80 !important;
 
-    box-shadow: 0px 8px 12px rgba($color-valeria-100, 0.1) !important;
+    box-shadow: 0px 2px 14px rgba($color-valeria-100, 0.12) !important;
+    border-radius: 0 !important;
 
     .Toastify__spinner{
         border-color: $color-valeria-40 !important;
@@ -322,7 +323,8 @@
     font-family: $font-text !important;
     color: $color-gray-80 !important;
 
-    box-shadow: 0px 8px 12px rgba($color-salbi-100, 0.1) !important;
+    box-shadow: 0px 2px 14px rgba($color-salbi-100, 0.12) !important;
+    border-radius: 0 !important;
 
     &-bar{
         background: $color-salbi-100 !important;
@@ -339,7 +341,8 @@
     font-family: $font-text !important;
     color: $color-gray-80 !important;
 
-    box-shadow: 0px 8px 12px rgba($color-salmon-100, 0.1) !important;
+    box-shadow: 0px 2px 14px rgba($color-salmon-100, 0.12) !important;
+    border-radius: 0 !important;
 
     &-bar{
         background: $color-salmon-100 !important;
