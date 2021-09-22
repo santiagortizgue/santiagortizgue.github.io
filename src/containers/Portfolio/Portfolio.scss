@@ -25,11 +25,7 @@
         display: flex;
         flex-direction: column;
 
-        padding: 40px $padding-tablet;
-
-        @include breakpoint(tablet) {
-            padding: 24px $padding-tablet;
-        }
+        padding: 24px $padding-tablet;
 
         @include breakpoint(laptop) {
             padding: 40px $padding-web;
@@ -40,9 +36,13 @@
 
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            grid-template-rows: repeat(2, auto);
+            grid-template-rows: auto 1fr;
             column-gap: 20px;
-            row-gap: 40px;
+            row-gap: 28px;
+        }
+
+        @include breakpoint(large_desktop) {
+            row-gap: 60px;
         }
 
         >.SwiperContainer{
@@ -67,7 +67,7 @@
         font-family: $font-title;
         font-style: normal;
         font-weight: bold;
-        font-size: 28px;
+        font-size: 24px;
         line-height: 140%;
 
         color: $color-black;
@@ -78,6 +78,12 @@
             grid-row: 1;
             grid-column: 2 / span 6;
             margin-bottom: 0;
+
+            font-size: 24px;
+        }
+
+        @include breakpoint(large_desktop) {
+            font-size: 32px;
         }
     }
 

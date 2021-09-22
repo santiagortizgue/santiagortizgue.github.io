@@ -10,7 +10,7 @@
     @include breakpoint(desktop) {
         display: grid;
         grid-template-columns: repeat(10, 1fr);
-        grid-template-rows: repeat(2, auto);
+        grid-template-rows: 1fr auto;
         column-gap: 20px;
         row-gap: 40px;
     }

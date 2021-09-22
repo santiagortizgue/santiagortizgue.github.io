@@ -43,7 +43,7 @@ const SwiperContainer = ({ data, isProject, isVariant }) => {
     }, [data]);
 
     const params = {
-        spaceBetween: 20,
+        spaceBetween: 32,
         slidesPerView: slidesPerView,
         pagination: { clickable: false, el: paginationEl },
         loop: true
