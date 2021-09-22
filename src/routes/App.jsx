@@ -14,6 +14,10 @@ import WebMenu from '../components/WebMenu/WebMenu';
 import Footer from '../components/Footer/Footer';
 import Blog from '../containers/Blog/Blog';
 
+//notification system
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const App = () => {
   const initialState = useInitialState();
   const isEmpty = Object.keys(initialState.state).length;
@@ -33,6 +37,7 @@ const App = () => {
             <Route component={NotFound} />
           </Switch>
           <Footer/>
+          <ToastContainer />
         </HashRouter>
       </AppContext.Provider>)
         :

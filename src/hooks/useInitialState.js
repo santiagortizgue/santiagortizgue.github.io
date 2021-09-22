@@ -70,10 +70,11 @@ const useInitialState = () => {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            console.log(response, data);
+            return {result: 'success', response};
 
         } catch (error) {
             console.log("Error trying to create a message", error.message);
+            return {result: 'error'};
         }
     }
 
