@@ -64,6 +64,7 @@
 
             @include breakpoint(large_desktop) {
                 font-size: 72px;
+                grid-column: 3 / 7;
             }
         }
 
@@ -86,7 +87,7 @@
                 transition: ease-in-out all .2s;
 
                 &:hover {
-                    color: $color-valeria-100;
+                    color: $color-aguacate-100;
                 }
             }
 
@@ -99,6 +100,10 @@
                 font-size: 20px;
 
                 margin-bottom: 20px;
+            }
+
+            @include breakpoint(large_desktop) {
+                grid-column: 3 / 7;
             }
 
         }
@@ -120,6 +125,10 @@
                 grid-column: 2 / 7;
                 grid-row: 5 / 6;
             }
+
+            @include breakpoint(large_desktop) {
+                grid-column: 3 / 7;
+            }
         }
 
         >h4 {
@@ -135,6 +144,10 @@
                 grid-column: 8 / 12;
                 grid-row: 2 / 3;
             }
+
+            @include breakpoint(large_desktop) {
+                grid-column: 8 / 11;
+            }
         }
 
         >form {
@@ -143,6 +156,10 @@
             @include breakpoint(desktop) {
                 grid-column: 8 / 12;
                 grid-row: 3 / 6;
+            }
+
+            @include breakpoint(large_desktop) {
+                grid-column: 8 / 11;
             }
         }
     }

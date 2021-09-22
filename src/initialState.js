@@ -195,5 +195,5 @@ export default {
             id: 1
         }]
     },
-    API: 'http://localhost:1337'
+    API: 'https://santiagortizgue-strapi.herokuapp.com'
 };
