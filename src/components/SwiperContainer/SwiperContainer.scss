@@ -8,10 +8,6 @@
     flex-direction: column;
     
     @include breakpoint(desktop) {
-        width: auto;
-        grid-row: 2;
-        grid-column: 2 / span 10;
-
         display: grid;
         grid-template-columns: repeat(10, 1fr);
         grid-template-rows: repeat(2, auto);

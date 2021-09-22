@@ -13,7 +13,11 @@
     }
 
     @include breakpoint(desktop) {
-        width: 420px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 20px;
     }
 
     >img {
@@ -23,6 +27,15 @@
         border-radius: 8px;
 
         margin-bottom: 16px;
+
+        @include breakpoint(desktop) {
+            grid-row: 1 / span 2;
+            grid-column: 1 / span 3;
+
+            place-self: center end;
+            max-width: 360px;
+            margin-bottom: 0;
+        }
     }
 
     >h4 {
@@ -35,6 +48,16 @@
         color: $color-black;
         width: 100%;
         margin-bottom: 16px;
+
+        @include breakpoint(desktop) {
+            grid-row: 1;
+            grid-column: 4 / span 3;
+
+            place-self: end start;
+            margin-bottom: 0;
+
+            font-size: 28px;
+        }
     }
 
     >p {
@@ -46,6 +69,13 @@
 
         color: $color-black;
         width: 100%;
+
+        @include breakpoint(desktop) {
+            grid-row: 2;
+            grid-column: 4 / span 3;
+
+            font-size: 20px;
+        }
     }
 
     &-negative{
