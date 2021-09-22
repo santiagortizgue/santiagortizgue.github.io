@@ -4,12 +4,10 @@ import './Portfolio.scss';
 
 import SocialMedia from '../../components/SocialMedia/SocialMedia';
 import SwiperContainer from '../../components/SwiperContainer/SwiperContainer';
+import PlaceholderCard from '../../components/PlaceholderCard/PlaceholderCard';
 
 const Portfolio = () => {
     const { projects } = useContext(AppContext);
-    const { state } = useContext(AppContext);
-    const { concepts } = state;
-    const { challenges } = state;
 
     //if the second value of useEffect is empty array [], the behavior its the same as componentDidMount
     useEffect(() => {
@@ -28,13 +26,13 @@ const Portfolio = () => {
             <div className="Portfolio-challenges Portfolio-container">
                 <h2 className="Portfolio-title Portfolio-title2">Development Challenges</h2>
 
-                <SwiperContainer data={concepts} isProject={false} isVariant={true} />
+                <PlaceholderCard isVariant={true} />
             </div>
 
             <div className="Portfolio-concepts Portfolio-container">
                 <h2 className="Portfolio-title">UI Design Concepts</h2>
 
-                <SwiperContainer data={challenges} isProject={false} isVariant={false} />
+                <PlaceholderCard isVariant={false} />
             </div>
 
             <SocialMedia />

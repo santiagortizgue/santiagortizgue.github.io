@@ -6,7 +6,15 @@
 
     display: flex;
     flex-direction: column;
-    cursor: pointer;
+
+    @include breakpoint(tablet) {
+        width: 320px;
+        place-self: center;
+    }
+
+    @include breakpoint(desktop) {
+        width: 420px;
+    }
 
     >img {
         width: 100%;
@@ -38,7 +46,6 @@
 
         color: $color-black;
         width: 100%;
-        margin-bottom: 16px;
     }
 
     &-negative{

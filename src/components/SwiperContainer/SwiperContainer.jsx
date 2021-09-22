@@ -4,7 +4,6 @@ import ProjectCard from '../ProjectCard/ProjectCard';
 import { ButtonLeft, ButtonRight } from '../SwiperActions/SwiperActions';
 
 import ConceptCard from '../ConceptCard/ConceptCard';
-import PlaceholderCard from '../PlaceholderCard/PlaceholderCard';
 
 import useSwiperRef from '../../hooks/useSwiperRef';
 
@@ -31,24 +30,20 @@ const SwiperContainer = ({ data, isProject, isVariant }) => {
     const [paginationEl, paginationRef] = useSwiperRef();
 
     useEffect(() => {
-        setItems(data);
-
         handleOnWindowChange();
         window.addEventListener("resize", handleOnWindowChange);
 
         return () => {
             window.removeEventListener('resize', handleOnWindowChange);
         }
+    }, []);
+
+    useEffect(() => {
+        setItems(data);
     }, [data]);
 
-    const placeholder = {
-        name: 'Coming soon',
-        about: 'I am building this section. It will be available soon!',
-        id: 0,
-    };
-
     const params = {
-        spaceBetween: 32,
+        spaceBetween: 20,
         slidesPerView: slidesPerView,
         pagination: { clickable: false, el: paginationEl },
         loop: true
@@ -59,10 +54,12 @@ const SwiperContainer = ({ data, isProject, isVariant }) => {
             setSlidesPerView(4);
             return;
         }
+
         if (window.innerWidth > 1024) {
             setSlidesPerView(3);
             return;
         }
+
         if (window.innerWidth > 768) {
             setSlidesPerView(2);
             return;
@@ -75,15 +72,9 @@ const SwiperContainer = ({ data, isProject, isVariant }) => {
         <div className="SwiperContainer">
 
             <Swiper {...params} onSwiper={(sw) => setSwiper(sw)}>
-
-                {items.length === 0 ?
-                    <PlaceholderCard data={placeholder} isVariant={isVariant} />
-                    : ''}
-
-                {items.map((item) => (
-                    <SwiperSlide key={item.id} >
+                {items.map((item, index) => (
+                    <SwiperSlide key={index} >
                         {isProject ? <ProjectCard data={item} /> : <ConceptCard data={item} />}
-
                     </SwiperSlide>
                 ))}
             </Swiper>

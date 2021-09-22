@@ -3,7 +3,7 @@ import AppContext from '../../context/AppContext';
 
 import './PlaceholderCard.scss';
 
-const PlaceholderCard = ({data, isVariant}) => {
+const PlaceholderCard = ({isVariant}) => {
     const { state } = useContext(AppContext);
     const { MAX_CARD_CHARACTERS } = state;
 
@@ -16,11 +16,17 @@ const PlaceholderCard = ({data, isVariant}) => {
         return s;
     }
 
+    const placeholder = {
+        name: 'Coming soon',
+        about: 'I am building this section. It will be available soon!',
+        id: 0,
+    };
+
     return (
         <div className={isVariant ? 'PlaceholderCard PlaceholderCard-negative' : 'PlaceholderCard'}>
             <img src="/png/placeholder.png" alt="placeholder cover" />
-            <h4>{data.name}</h4>
-            <p>{changeString(data.about)}</p>
+            <h4>{placeholder.name}</h4>
+            <p>{changeString(placeholder.about)}</p>
         </div>
     );
 }

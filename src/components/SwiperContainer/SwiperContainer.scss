@@ -4,7 +4,11 @@
     width: 100%;
     height: auto;
 
+    display: flex;
+    flex-direction: column;
+    
     @include breakpoint(desktop) {
+        width: auto;
         grid-row: 2;
         grid-column: 2 / span 10;
 
@@ -15,10 +19,14 @@
         row-gap: 40px;
     }
 
-    >.swiper-container{
+    >.swiper-container {
+        width: 100%;
+
         @include breakpoint(desktop) {
             grid-row: 1;
             grid-column: 1 / span 10;
+
+            width: 100%;
         }
     }
 
@@ -35,10 +43,21 @@
         align-content: flex-start;
         align-items: center;
 
+        @include breakpoint(tablet) {
+            width: 320px;
+            place-self: center;
+        }
+
         @include breakpoint(desktop) {
+            width: 100%;
             grid-row: 2;
             grid-column: 4 / span 4;
             margin-top: 0;
+        }
+
+        @include breakpoint(large_desktop) {
+            grid-row: 2;
+            grid-column: 5 / span 2;
         }
     }
 

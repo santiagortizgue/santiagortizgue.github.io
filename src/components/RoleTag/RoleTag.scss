@@ -12,10 +12,6 @@
 
     width: fit-content;
 
-    @include breakpoint(large_desktop) {
-        padding: 8px 16px;
-    }
-
     >p {
         font-family: $font-text;
         font-style: normal;
