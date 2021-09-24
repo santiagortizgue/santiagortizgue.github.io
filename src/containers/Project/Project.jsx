@@ -1,7 +1,8 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 import { BackButton, BehanceButton, GithubButton, LinkButton } from '../../components/Button/Button';
 import RoleTag from '../../components/RoleTag/RoleTag';
+import MadeTag from '../../components/MadeTag/MadeTag';
 import SwiperGallery from '../../components/SwiperGallery/SwiperGallery';
 import AppContext from '../../context/AppContext';
 import './Project.scss'
@@ -9,16 +10,67 @@ import './Project.scss'
 const Project = () => {
     const history = useHistory();
     const { id } = useParams();
-    const { project, getProjectById, state } = useContext(AppContext);
-    const { API } = state;
+    const { project, getProjectById, state, getImageUrl } = useContext(AppContext);
     const { work_roles } = state;
+
+    const [imgLeft, setImgLeft] = useState(null);
+    const [imgRight, setImgRight] = useState(null);
+    const [imgHeader, setImgHeader] = useState(null);
+    const [imgLogo, setImgLogo] = useState(null);
+    const [imgSlider, setImgSlider] = useState(null);
 
     useEffect(() => {
         getProjectById(id);
-
         window.scrollTo(0, 0);
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(() => {
+        const fetchImgHeader = async () => {
+            let url = await getImageUrl(project.header);
+            setImgHeader(url);
+        }
+
+        const fetchImgLeft = async () => {
+            let url = await getImageUrl(project.imgLeft);
+            setImgLeft(url);
+        }
+
+        const fetchImgRight = async () => {
+            let url = await getImageUrl(project.imgRight);
+            setImgRight(url);
+        }
+
+        const fetchImgLogo = async () => {
+            let url = await getImageUrl(project.e_img);
+            setImgLogo(url);
+        }
+
+        const fetchImgSlider = async () => {
+            let url = await getImageUrl(project.e_img);
+
+            
+
+            setImgSlider(url);
+        }
+
+        if (project && project.e_img) {
+            fetchImgLogo();
+        }
+
+        if (project && project.slides) {
+            fetchImgSlider();
+        }
+
+        if (project) {
+            fetchImgHeader();
+            fetchImgLeft();
+            fetchImgRight();
+        }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [project]);
 
     const handleBack = (e) => {
         e.preventDefault();
@@ -37,8 +89,8 @@ const Project = () => {
                         <BackButton onClick={handleBack} text="Back to Portfolio" />
                         <h2 className="Project-title">{project.title}</h2>
                         <div className="Project-data"><span>{project.year}</span><div className="Project-dot"></div><h1>{project.name}</h1></div>
-                        <img className="Project-header" src={`${API}${project.header.url}`} alt="header" />
-                        {project.e_img ? <a className="Project-company" target="_blank" rel="noreferrer" href={project.e_url}>Made working for: <img src={`${API}${project.e_img.url}`} alt="company" /></a> : ''}
+                        {imgHeader ? <img className="Project-header" src={imgHeader} alt="header" /> : ''}
+                        {imgLogo ? <MadeTag src={imgLogo} url={project.e_url} /> : ''}
                         <p className="Project-about">{project.about}</p>
                         <div className="Project-roles">
                             <p>Roles in this project</p>
@@ -51,8 +103,8 @@ const Project = () => {
                     </div>
 
                     <div className="Project-info">
-                        <img className="Project-imgLeft" src={`${API}${project.imgLeft.url}`} alt="left muck-up" />
-                        <img className="Project-imgRight" src={`${API}${project.imgRight.url}`} alt="right muck-up" />
+                        {imgLeft ? <img className="Project-imgLeft" src={imgLeft} alt="left muck-up" /> : ''}
+                        {imgRight ? <img className="Project-imgRight" src={imgRight} alt="right muck-up" /> : ''}
                         <div className="Project-quote"><p>{project.quote}</p></div>
                     </div>
 
@@ -101,7 +153,7 @@ const Project = () => {
 
                         {project.topics ?
                             <div className="Project-topics">
-                                {project.topics.map((topic)=>(
+                                {project.topics.map((topic) => (
                                     <article key={topic.id} className="Project-topic">
                                         <span>{`0${topic.id + 1}`}</span>
                                         <h5>{topic.name}</h5>
@@ -114,7 +166,7 @@ const Project = () => {
                     </div>
 
                     <div className="Project-gallery">
-                        <SwiperGallery gallery={project.slides} />
+                        {imgSlider ? <SwiperGallery gallery={imgSlider} /> : ''}
                     </div>
 
                 </div>

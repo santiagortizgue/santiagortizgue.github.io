@@ -4,7 +4,7 @@ import initialState from '../initialState';
 import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, getDocs, collection, where, query, doc, getDoc, orderBy } from "firebase/firestore"
+import { getFirestore, getDocs, collection, where, query, doc, getDoc, orderBy, addDoc } from "firebase/firestore"
 import { getStorage, ref, getDownloadURL } from "firebase/storage"
 
 import { firebaseConfig } from '../config/firebaseConfig';
@@ -41,6 +41,7 @@ const useInitialState = () => {
         let projects_temp = [];
         projects_collection.forEach((doc) => {
             projects_temp.push(builtProjectObject(doc.data(), doc.id));
+
         });
 
         console.log("Project: ", projects_temp);
@@ -82,25 +83,31 @@ const useInitialState = () => {
 
         const project_snap = await getDoc(project_ref);
 
-        if(project_snap.exists()) {
+        if (project_snap.exists()) {
             const project_object = builtProjectObject(project_snap.data(), project_snap.id);
             setProject(project_object);
             console.log("Selected project: ", project_object);
-        }else{
+        } else {
             console.log("The project doesn't exist");
         }
     }
 
     const createMessage = async (data) => {
-        await timeout(1500);
+        await timeout(1000);
+        try {
+            let collection_ref = collection(db, "messages");
+            await addDoc(collection_ref, data);
 
+            return {result: 'success'};
+        } catch (error) {
+            return {result: 'error'};
+        }
     }
 
     const getImageUrl = async (route) => {
         const storage_ref = ref(storage, route);
 
         let url = await getDownloadURL(storage_ref);
-        console.log(url);
 
         return url;
     }

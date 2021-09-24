@@ -8,12 +8,11 @@ const RecentBanner = ({ data }) => {
     const { getImageUrl } = useContext(AppContext);
     const history = useHistory();
 
-    const [recent, setRecent] = useState(data);
+    const [recent] = useState(data);
     const [imgCover, setImgCover] = useState(null);
     const [imgLogo, setImgLogo] = useState(null);
 
     useEffect(() => {
-        setRecent(data);
 
         const fetchImgCover = async () => {
             let url = await getImageUrl(recent.recent_cover);
@@ -34,7 +33,7 @@ const RecentBanner = ({ data }) => {
         }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [recent]);
+    }, []);
 
     const handleProject = () => { 
         history.push(`/project/${recent.id}`);

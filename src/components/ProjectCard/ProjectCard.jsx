@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
 import RoleTag from '../RoleTag/RoleTag';
@@ -7,10 +7,23 @@ import './ProjectCard.scss'
 
 const ProjectCard = ({ data }) => {
 
-    const { state } = useContext(AppContext);
-    const { API } = state;
+    const { state, getImageUrl } = useContext(AppContext);
     const { MAX_CARD_CHARACTERS } = state;
     const { work_roles } = state;
+
+    const [imgCover, setImgCover] = useState(null);
+
+    useEffect(() => {
+
+        const fetchImgCover = async () => {
+            let url = await getImageUrl(data.cover);
+            setImgCover(url);
+        }
+
+        fetchImgCover();
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const changeString = (str) => {
         let s = "";
@@ -26,8 +39,8 @@ const ProjectCard = ({ data }) => {
     }
 
     return (
-        <Link to={`/project/${data.id}`} className="ProjectCard">
-            <img src={`${API}${data.cover.url}`} alt="project cover" />
+        <Link to={`/project/${data.uid}`} className="ProjectCard">
+            {imgCover ? <img src={imgCover} alt="project cover" /> : ''}
             <h4>{data.name}</h4>
             <p>{changeString(data.about)}</p>
             <div className="ProjectCard-roles">
