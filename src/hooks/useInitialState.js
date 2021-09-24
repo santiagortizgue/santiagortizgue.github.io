@@ -34,14 +34,13 @@ const useInitialState = () => {
     const getProjects = async () => {
         const collection_ref = collection(db, "projects");
 
-        const q = query(collection_ref, orderBy("order"));
+        const q = query(collection_ref, orderBy("order", "desc"));
 
         const projects_collection = await getDocs(q);
 
         let projects_temp = [];
-        projects_collection.forEach((doc) => {
-            projects_temp.push(builtProjectObject(doc.data(), doc.id));
-
+        projects_collection.forEach(async (doc) => {
+            projects_temp.push(await builtProjectObject(doc.data(), doc.id));
         });
 
         console.log("Project: ", projects_temp);
@@ -71,8 +70,8 @@ const useInitialState = () => {
 
         const projects_collection = await getDocs(q);
 
-        projects_collection.forEach((doc) => {
-            const recent = builtProjectObject(doc.data(), doc.id);
+        projects_collection.forEach(async (doc) => {
+            const recent = await builtProjectObject(doc.data(), doc.id);
             setRecent(recent);
             console.log("Recent project: ", recent);
         });
@@ -84,7 +83,7 @@ const useInitialState = () => {
         const project_snap = await getDoc(project_ref);
 
         if (project_snap.exists()) {
-            const project_object = builtProjectObject(project_snap.data(), project_snap.id);
+            const project_object = await builtProjectObject(project_snap.data(), project_snap.id);
             setProject(project_object);
             console.log("Selected project: ", project_object);
         } else {
@@ -98,9 +97,9 @@ const useInitialState = () => {
             let collection_ref = collection(db, "messages");
             await addDoc(collection_ref, data);
 
-            return {result: 'success'};
+            return { result: 'success' };
         } catch (error) {
-            return {result: 'error'};
+            return { result: 'error' };
         }
     }
 
@@ -112,10 +111,46 @@ const useInitialState = () => {
         return url;
     }
 
-    const builtProjectObject = (data, uid) => {
+    const builtProjectObject = async (data, uid) => {
+        const topics_ref = collection(db, `projects/${uid}/topics`);
+        const topics_collection = await getDocs(topics_ref);
+
+        let topics_temp = [];
+        topics_collection.forEach((doc) => {
+            topics_temp.push(doc.data());
+        });
+
+        const team_ref = collection(db, `projects/${uid}/team`);
+        const team_collection = await getDocs(team_ref);
+
+        let team_temp = [];
+        team_collection.forEach((doc) => {
+            team_temp.push(doc.data());
+        });
+
+        const slides_ref = collection(db, `projects/${uid}/slides`);
+        const slides_collection = await getDocs(slides_ref);
+
+        let slides_temp = [];
+        slides_collection.forEach((doc) => {
+            slides_temp.push(doc.data());
+        });
+
+        const links_ref = collection(db, `projects/${uid}/links`);
+        const links_collection = await getDocs(links_ref);
+
+        let links_temp = [];
+        links_collection.forEach((doc) => {
+            links_temp.push(doc.data());
+        });
+
         let p = {
             ...data,
             uid,
+            topics: topics_temp.length !== 0 ? topics_temp : null,
+            team: team_temp.length !== 0 ? team_temp : null,
+            slides: slides_temp.length !== 0 ? slides_temp : null,
+            link: links_temp.length !== 0 ? links_temp : null,
         };
 
         return p;

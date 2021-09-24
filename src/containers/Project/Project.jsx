@@ -48,11 +48,16 @@ const Project = () => {
         }
 
         const fetchImgSlider = async () => {
-            let url = await getImageUrl(project.e_img);
+            let slides_temp = [];
+            project.slides.forEach(async (slide) => {
+                let slide_temp = {
+                    id: slide.id,
+                    url: await getImageUrl(slide.url)
+                }
+                slides_temp.push(slide_temp);
+            });
 
-            
-
-            setImgSlider(url);
+            setImgSlider(slides_temp);
         }
 
         if (project && project.e_img) {
