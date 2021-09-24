@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import './SwiperGallery.scss';
-
-import AppContext from '../../context/AppContext';
 
 import { ButtonLeftSolid, ButtonRightSolid } from '../SwiperActions/SwiperActions';
 
@@ -12,9 +10,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
 
 const SwiperGallery = ({ gallery }) => {
-    const { state } = useContext(AppContext);
-    const { API } = state;
-
     const [items, setItems] = useState(gallery);
     const [swiper, setSwiper] = useState(null);
 

@@ -43,8 +43,6 @@ const useInitialState = () => {
             projects_temp.push(await builtProjectObject(doc.data(), doc.id));
         });
 
-        console.log("Project: ", projects_temp);
-
         setProjects(projects_temp);
     }
 
@@ -73,7 +71,6 @@ const useInitialState = () => {
         projects_collection.forEach(async (doc) => {
             const recent = await builtProjectObject(doc.data(), doc.id);
             setRecent(recent);
-            console.log("Recent project: ", recent);
         });
     }
 
@@ -85,7 +82,6 @@ const useInitialState = () => {
         if (project_snap.exists()) {
             const project_object = await builtProjectObject(project_snap.data(), project_snap.id);
             setProject(project_object);
-            console.log("Selected project: ", project_object);
         } else {
             console.log("The project doesn't exist");
         }
