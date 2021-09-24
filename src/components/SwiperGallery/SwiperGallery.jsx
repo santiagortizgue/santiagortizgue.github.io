@@ -33,7 +33,7 @@ const SwiperGallery = ({ gallery }) => {
             <Swiper {...params} onSwiper={(sw) => setSwiper(sw)} className="SwiperGallery-container">
                 {items.map((item) => (
                     <SwiperSlide key={item.id} >
-                        <img className="SwiperGallery-img" src={`${API}${item.url}`} alt="slider muck up from gallery" />
+                        <img className="SwiperGallery-img" src={item.url} alt="slider muck up from gallery" />
                     </SwiperSlide>
                 ))}
 

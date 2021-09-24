@@ -12,6 +12,8 @@ const Portfolio = () => {
     //if the second value of useEffect is empty array [], the behavior its the same as componentDidMount
     useEffect(() => {
         window.scrollTo(0, 0);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
@@ -19,7 +21,7 @@ const Portfolio = () => {
 
             <div className="Portfolio-projects Portfolio-container">
                 <h2 className="Portfolio-title">Projects & Experiencies</h2>
-                
+
                 <SwiperContainer data={projects} isProject={true} isVariant={false} />
             </div>
 

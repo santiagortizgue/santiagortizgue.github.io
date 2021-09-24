@@ -118,27 +118,7 @@
         }
     }
 
-    &-company {
-        width: auto;
-        cursor: pointer;
-
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        align-content: center;
-        align-items: center;
-
-        text-decoration: none;
-
-        font-family: $font-text;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 120%;
-
-        color: $color-black;
-
+    .MadeTag{
         margin-bottom: 40px;
 
         @include breakpoint(desktop) {
@@ -146,11 +126,6 @@
             grid-column: 9 / span 3;
             place-self: center end;
             margin-bottom: 0;
-        }
-
-        >img {
-            margin-left: 16px;
-            height: 34px;
         }
     }
 
