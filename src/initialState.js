@@ -195,5 +195,5 @@ export default {
             id: 1
         }]
     },
-    API: process.env.REACT_APP_API_URL
+    RECENT_PROJECT_NAME: 'Aurora'
 };

@@ -1,104 +1,136 @@
-import axios from 'axios';
-import {
-    useEffect,
-    useState
-} from 'react';
+import { useEffect, useState } from 'react';
 import initialState from '../initialState';
+
+import { initializeApp } from "firebase/app";
+//import { getAnalytics } from "firebase/analytics";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, getDocs, collection, where, query, doc, getDoc, orderBy } from "firebase/firestore"
+import { getStorage, ref, getDownloadURL } from "firebase/storage"
+
+import { firebaseConfig } from '../config/firebaseConfig';
 
 const useInitialState = () => {
     const [state] = useState(initialState);
     const [projects, setProjects] = useState([]);
     const [recent, setRecent] = useState(null);
     const [project, setProject] = useState(null);
-    const {
-        API
-    } = state;
-    const [token, setToken] = useState(null);
+    //const [user, setUser] = useState(null);
+
+    //firebase variables
+    initializeApp(firebaseConfig)
+    //const app = initializeApp(firebaseConfig);
+    //const analytics = getAnalytics(app);
+    const auth = getAuth();
+    const db = getFirestore();
+    const storage = getStorage();
 
     useEffect(() => {
         getUser();
-        getData();
+        getProjects();
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const getData = async () => {
-        try {
-            const response = await axios(`${API}/projects`);
-            let items = response.data.sort(compareId);
-            setProjects(items);
-        } catch (error) {
-            console.log("Error getting the projects", error.message);
-        }
+    const getProjects = async () => {
+        const collection_ref = collection(db, "projects");
+
+        const q = query(collection_ref, orderBy("order"));
+
+        const projects_collection = await getDocs(q);
+
+        let projects_temp = [];
+        projects_collection.forEach((doc) => {
+            projects_temp.push(builtProjectObject(doc.data(), doc.id));
+        });
+
+        console.log("Project: ", projects_temp);
+
+        setProjects(projects_temp);
     }
 
     const getUser = async () => {
-        try {
-            const response = await axios.post(`${API}/auth/local`, {
-                identifier: process.env.REACT_APP_EMAIL,
-                password: process.env.REACT_APP_PASSWORD,
+        signInWithEmailAndPassword(auth, process.env.REACT_APP_EMAIL, process.env.REACT_APP_PASSWORD)
+            .then((userCredential) => {
+                // Signed in
+                //setUser(userCredential.user);
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+                console.log('Error trying to login', errorCode, errorMessage);
             });
-            setToken(response.data.jwt);
-
-        } catch (error) {
-            console.log("Error trying to log in", error.message);
-        }
     }
 
-    const getRecent = async (id) => {
-        try {
-            const response = await axios(`${API}/projects/${id}`);
-            setRecent(response.data);
-        } catch (error) {
-            console.log("Error getting the recent project", error.message);
-        }
+    const getProjectByName = async (name) => {
+        const project_ref = collection(db, "projects");
+
+        const q = await query(project_ref, where("name", "==", name));
+
+        const projects_collection = await getDocs(q);
+
+        projects_collection.forEach((doc) => {
+            const recent = builtProjectObject(doc.data(), doc.id);
+            setRecent(recent);
+            console.log("Recent project: ", recent);
+        });
     }
 
-    const getProject = async (id) => {
-        try {
-            const response = await axios(`${API}/projects/${id}`);
-            setProject(response.data);
-        } catch (error) {
-            console.log("Error getting the project", error.message);
+    const getProjectById = async (uid) => {
+        const project_ref = doc(db, "projects", uid);
+
+        const project_snap = await getDoc(project_ref);
+
+        if(project_snap.exists()) {
+            const project_object = builtProjectObject(project_snap.data(), project_snap.id);
+            setProject(project_object);
+            console.log("Selected project: ", project_object);
+        }else{
+            console.log("The project doesn't exist");
         }
     }
 
     const createMessage = async (data) => {
         await timeout(1500);
 
-        try {
-            const response = await axios.post(`${API}/messages`,
-            data, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
+    }
 
-            return {result: 'success', response};
+    const getImageUrl = async (route) => {
+        const storage_ref = ref(storage, route);
 
-        } catch (error) {
-            console.log("Error trying to create a message", error.message);
-            return {result: 'error'};
-        }
+        let url = await getDownloadURL(storage_ref);
+        console.log(url);
+
+        return url;
+    }
+
+    const builtProjectObject = (data, uid) => {
+        let p = {
+            ...data,
+            uid,
+        };
+
+        return p;
     }
 
     return {
-        getProject,
-        getRecent,
+        getProjectById,
+        getProjectByName,
         recent,
         project,
         projects,
         state,
-        createMessage
+        createMessage,
+        getImageUrl
     };
 };
 
 export default useInitialState;
 
-
-function compareId(a, b) {
-    return b.id - a.id;
-}
-
-function timeout(ms) {
+const timeout = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+
+

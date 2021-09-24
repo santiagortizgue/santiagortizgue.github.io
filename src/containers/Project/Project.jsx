@@ -9,12 +9,12 @@ import './Project.scss'
 const Project = () => {
     const history = useHistory();
     const { id } = useParams();
-    const { project, getProject, state } = useContext(AppContext);
+    const { project, getProjectById, state } = useContext(AppContext);
     const { API } = state;
     const { work_roles } = state;
 
     useEffect(() => {
-        getProject(id);
+        getProjectById(id);
 
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
