@@ -25,55 +25,44 @@ const SwiperContainer = ({ data, isProject, isVariant }) => {
 
     const [items, setItems] = useState(data);
     const [swiper, setSwiper] = useState(null);
-    const [slidesPerView, setSlidesPerView] = useState(1);
 
     const [paginationEl, paginationRef] = useSwiperRef();
 
     useEffect(() => {
-        handleOnWindowChange();
-        window.addEventListener("resize", handleOnWindowChange);
-
-        return () => {
-            window.removeEventListener('resize', handleOnWindowChange);
-        }
-    }, []);
+        if (swiper) swiper.updateSlides();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [items]);
 
     useEffect(() => {
         setItems(data);
     }, [data]);
 
     const params = {
-        spaceBetween: 32,
-        slidesPerView: slidesPerView,
+        spaceBetween: 20,
+        slidesPerView: 1,
         pagination: { clickable: false, el: paginationEl },
-        loop: true
+        loop: true,
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 28
+            },
+            1440: {
+                slidesPerView: 4,
+                spaceBetween: 32
+            }
+        }
     }
-
-    const handleOnWindowChange = () => {
-        if (window.innerWidth > 1440) {
-            setSlidesPerView(4);
-            return;
-        }
-
-        if (window.innerWidth > 1024) {
-            setSlidesPerView(3);
-            return;
-        }
-
-        if (window.innerWidth > 768) {
-            setSlidesPerView(2);
-            return;
-        }
-
-        setSlidesPerView(1);
-    }
-
     return (
         <div className="SwiperContainer">
 
             <Swiper {...params} onSwiper={(sw) => setSwiper(sw)}>
-                {items.map((item, index) => (
-                    <SwiperSlide key={index} >
+                {items.map((item) => (
+                    <SwiperSlide key={item.uid} >
                         {isProject ? <ProjectCard data={item} /> : <ConceptCard data={item} />}
                     </SwiperSlide>
                 ))}

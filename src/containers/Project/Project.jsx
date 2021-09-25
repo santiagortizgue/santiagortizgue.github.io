@@ -5,7 +5,8 @@ import RoleTag from '../../components/RoleTag/RoleTag';
 import MadeTag from '../../components/MadeTag/MadeTag';
 import SwiperGallery from '../../components/SwiperGallery/SwiperGallery';
 import AppContext from '../../context/AppContext';
-import './Project.scss'
+
+import './Project.scss';
 
 const Project = () => {
     const history = useHistory();

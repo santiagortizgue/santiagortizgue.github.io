@@ -22,7 +22,7 @@ const Portfolio = () => {
             <div className="Portfolio-projects Portfolio-container">
                 <h2 className="Portfolio-title">Projects & Experiencies</h2>
 
-                <SwiperContainer data={projects} isProject={true} isVariant={false} />
+               <SwiperContainer data={projects} isProject={true} isVariant={false} />
             </div>
 
             <div className="Portfolio-challenges Portfolio-container">

@@ -45,15 +45,19 @@ const WebMenu = () => {
                         : ''}
                     <div className="WebMenu-mobileContent">
                         <Link to="/" className="WebMenu-mobileLogo" onClick={() => { setState(false) }}>
-                            <img src="./svg/logo.svg" alt="Logo icon" />
+                            <svg viewBox="0 0 566 566" >
+                                <polygon points="212.3,0.2 283,70.9 141.6,212.3 283,353.7 212.3,424.4 0.2,212.3 " />
+                                <rect x="233" y="233" width="100" height="100" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -117.2222 282.9999)" />
+                                <polygon points="283.1,212.4 353.8,141.7 566,353.8 353.8,566 283.1,495.2 424.5,353.8 353.8,283.1 " />
+                            </svg>
                         </Link>
                         <h1 className="WebMenu-mobileTitle">Santiagortizgue</h1>
                         <div className="WebMenu-iconContainer" onClick={handleState}>
                             {state ?
                                 <img src="./svg/close.svg" alt="icon close" />
-                                : 
+                                :
                                 <img src="./svg/menu.svg" alt="icon menu" />
-                                }
+                            }
                         </div>
                     </div>
                 </div>
@@ -61,7 +65,11 @@ const WebMenu = () => {
                 <div className="WebMenu">
                     <div className="WebMenu-context">
                         <Link to="/" className="WebMenu-Logo" onClick={() => { setState(false) }}>
-                            <img src="./svg/logo.svg" alt="Logo icon" />
+                            <svg viewBox="0 0 566 566" >
+                                <polygon points="212.3,0.2 283,70.9 141.6,212.3 283,353.7 212.3,424.4 0.2,212.3 " />
+                                <rect x="233" y="233" width="100" height="100" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -117.2222 282.9999)" />
+                                <polygon points="283.1,212.4 353.8,141.7 566,353.8 353.8,566 283.1,495.2 424.5,353.8 353.8,283.1 " />
+                            </svg>
                         </Link>
                         <h1 className="WebMenu-title">Santiagortizgue</h1>
                     </div>

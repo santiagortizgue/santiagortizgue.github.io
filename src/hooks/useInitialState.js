@@ -39,8 +39,10 @@ const useInitialState = () => {
         const projects_collection = await getDocs(q);
 
         let projects_temp = [];
-        projects_collection.forEach(async (doc) => {
-            projects_temp.push(await builtProjectObject(doc.data(), doc.id));
+        
+        projects_collection.forEach((doc) => {
+            let p = builtProjectObject(doc.data(), doc.id);
+            projects_temp.push(p);
         });
 
         setProjects(projects_temp);
@@ -107,46 +109,11 @@ const useInitialState = () => {
         return url;
     }
 
-    const builtProjectObject = async (data, uid) => {
-        const topics_ref = collection(db, `projects/${uid}/topics`);
-        const topics_collection = await getDocs(topics_ref);
-
-        let topics_temp = [];
-        topics_collection.forEach((doc) => {
-            topics_temp.push(doc.data());
-        });
-
-        const team_ref = collection(db, `projects/${uid}/team`);
-        const team_collection = await getDocs(team_ref);
-
-        let team_temp = [];
-        team_collection.forEach((doc) => {
-            team_temp.push(doc.data());
-        });
-
-        const slides_ref = collection(db, `projects/${uid}/slides`);
-        const slides_collection = await getDocs(slides_ref);
-
-        let slides_temp = [];
-        slides_collection.forEach((doc) => {
-            slides_temp.push(doc.data());
-        });
-
-        const links_ref = collection(db, `projects/${uid}/links`);
-        const links_collection = await getDocs(links_ref);
-
-        let links_temp = [];
-        links_collection.forEach((doc) => {
-            links_temp.push(doc.data());
-        });
+    const builtProjectObject = (data, uid) => {
 
         let p = {
             ...data,
-            uid,
-            topics: topics_temp.length !== 0 ? topics_temp : null,
-            team: team_temp.length !== 0 ? team_temp : null,
-            slides: slides_temp.length !== 0 ? slides_temp : null,
-            link: links_temp.length !== 0 ? links_temp : null,
+            uid
         };
 
         return p;

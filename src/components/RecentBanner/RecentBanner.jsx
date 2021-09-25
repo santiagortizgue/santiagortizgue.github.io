@@ -36,7 +36,7 @@ const RecentBanner = ({ data }) => {
     }, []);
 
     const handleProject = () => { 
-        history.push(`/project/${recent.id}`);
+        history.push(`/project/${recent.uid}`);
     }
 
     return (
