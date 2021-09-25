@@ -12,7 +12,7 @@ import './Project.scss';
 const Project = () => {
     const history = useHistory();
     const { id } = useParams();
-    const { project, getProjectById, state, getImageUrl } = useContext(AppContext);
+    const { project, setProject, getProjectById, state, getImageUrl } = useContext(AppContext);
     const { work_roles } = state;
 
     const [imgLeft, setImgLeft] = useState(null);
@@ -25,6 +25,9 @@ const Project = () => {
         getProjectById(id);
         window.scrollTo(0, 0);
 
+        return () => {
+            setProject(null);
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

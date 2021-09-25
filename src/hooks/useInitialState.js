@@ -124,6 +124,7 @@ const useInitialState = () => {
         getProjectByName,
         recent,
         project,
+        setProject,
         projects,
         state,
         createMessage,
