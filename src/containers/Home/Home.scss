@@ -365,7 +365,7 @@
         @include breakpoint(large_desktop) {
             grid-row: 4 / 5;
             grid-column: 8 / 10;
-            place-self: end start;
+            place-self: start end;
             margin-bottom: 0;
         }
     }
