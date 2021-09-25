@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import NavMenu from '../NavMenu/NavMenu';
 import ProfileLinks from '../ProfileLinks/ProfileLinks';
+import Fade from 'react-reveal/Fade';
+
 import './WebMenu.scss';
 
 const WebMenu = () => {
@@ -20,6 +22,7 @@ const WebMenu = () => {
     const handleType = () => {
         let value = "mobile";
         if (window.innerWidth > 500) {
+            setState(false);
             value = "web";
         }
         setMenu(value);
@@ -37,12 +40,12 @@ const WebMenu = () => {
         <>
             {menu === "mobile" ?
                 <div className="WebMenu WebMenu-shadow">
-                    {state ?
+                    <Fade bottom timeout={500} when={state} collapse>
                         <div className="WebMenu-mobileMenu">
                             <ProfileLinks />
                             <NavMenu handleState={handleState} />
                         </div>
-                        : ''}
+                    </Fade>
                     <div className="WebMenu-mobileContent">
                         <Link to="/" className="WebMenu-mobileLogo" onClick={() => { setState(false) }}>
                             <svg viewBox="0 0 566 566" >
