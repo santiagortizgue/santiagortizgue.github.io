@@ -1,0 +1,30 @@
+@import '../../assets/variables.scss';
+
+.PlaceholderBlock{
+    display: grid;
+    width: 100%;
+    height: fit-content;
+    place-self: center stretch;
+    background-color: $color-white;
+
+    >img{
+        width: 120px;
+        place-self: center;
+        display: flex;
+        flex-shrink: 0;
+
+        margin: 80px;
+
+        @include breakpoint(laptop){
+            width: 200px;
+        }
+
+        @include breakpoint(desktop){
+            width: 280px;
+        }
+
+        @include breakpoint(large_desktop){
+            width: 320px;
+        }
+    }
+}

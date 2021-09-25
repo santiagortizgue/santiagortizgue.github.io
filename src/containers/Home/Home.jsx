@@ -6,6 +6,7 @@ import SocialMedia from '../../components/SocialMedia/SocialMedia';
 import './Home.scss';
 import Button from '../../components/Button/Button';
 import RecentBanner from '../../components/RecentBanner/RecentBanner';
+import PlaceholderBlock from '../../components/PlaceholderBlock/PlaceholderBlock';
 
 const Home = () => {
   const { state, recent, getProjectByName } = useContext(AppContext);
@@ -49,7 +50,7 @@ const Home = () => {
         {recent ?
           <RecentBanner data={recent} />
           :
-          <h5>Loading recent Project</h5>}
+          <PlaceholderBlock/>}
       </div>
 
     </div>

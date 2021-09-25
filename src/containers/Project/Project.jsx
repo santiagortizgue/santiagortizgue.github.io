@@ -4,6 +4,7 @@ import { BackButton, BehanceButton, GithubButton, LinkButton } from '../../compo
 import RoleTag from '../../components/RoleTag/RoleTag';
 import MadeTag from '../../components/MadeTag/MadeTag';
 import SwiperGallery from '../../components/SwiperGallery/SwiperGallery';
+import PlaceholderView from '../../components/PlaceholderView/PlaceholderView';
 import AppContext from '../../context/AppContext';
 
 import './Project.scss';
@@ -176,7 +177,7 @@ const Project = () => {
                     </div>
 
                 </div>
-                : 'Loading...'}
+                : <PlaceholderView />}
         </>
 
     );

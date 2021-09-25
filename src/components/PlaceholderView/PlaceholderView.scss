@@ -1,0 +1,29 @@
+@import '../../assets/variables.scss';
+
+.PlaceholderView{
+    display: grid;
+    width: 100%;
+    height: 90vh;
+    place-self: center stretch;
+
+    background-color: $color-white;
+
+    >img{
+        width: 200px;
+        place-self: center;
+        display: flex;
+        flex-shrink: 0;
+
+        @include breakpoint(laptop){
+            width: 280px;
+        }
+
+        @include breakpoint(desktop){
+            width: 320px;
+        }
+
+        @include breakpoint(large_desktop){
+            width: 400px;
+        }
+    }
+}

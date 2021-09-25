@@ -266,6 +266,20 @@
         }
     }
 
+    .PlaceholderBlock{
+        border-radius: 8px;
+        height: auto;
+
+        @include breakpoint(laptop) {
+            grid-row: 2 / end;
+            grid-column: 1 / 11;
+        }
+
+        @include breakpoint(desktop) {
+            grid-column: 2 / 12;
+        }
+    }
+
     &-recentImage {
         width: 100%;
         margin-bottom: 20px;
