@@ -191,7 +191,7 @@ export default {
         },{
             name: "CV",
             profile: "Download CV",
-            url: "https://santiagortizgue.github.io/file/CV.pdf",
+            url: "/file/CV.pdf",
             id: 1
         }]
     },
