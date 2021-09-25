@@ -3,10 +3,12 @@ import { useHistory } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
 import ContextTag from '../../components/ContextTag/ContextTag';
 import SocialMedia from '../../components/SocialMedia/SocialMedia';
-import './Home.scss';
 import Button from '../../components/Button/Button';
 import RecentBanner from '../../components/RecentBanner/RecentBanner';
 import PlaceholderBlock from '../../components/PlaceholderBlock/PlaceholderBlock';
+
+import './Home.scss';
+import "animate.css";
 
 const Home = () => {
   const { state, recent, getProjectByName } = useContext(AppContext);
@@ -24,7 +26,7 @@ const Home = () => {
   }
 
   return (
-    <div className="Home">
+    <div className="Home animate__animated animate__fadeIn">
 
       <div className="Home-top">
         <div className="Home-imgContainer">

@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
+
 import './Blog.scss'
+import "animate.css";
 
 const Blog = () => {
     const title1 = '<Blog/>';
@@ -11,7 +13,7 @@ const Blog = () => {
     }, []);
 
     return (
-        <div className="Blog">
+        <div className="Blog animate__animated animate__fadeIn">
             <div className="Blog-top">
                 <div className="Blog-container">
                     <img src="/svg/vector.svg" alt="Coding illustration" />

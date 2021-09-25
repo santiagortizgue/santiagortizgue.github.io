@@ -103,7 +103,7 @@ const Contact = () => {
     const notifyError = () => toast.update(notify, { render: "Ouch! Something went wrong", type: 'error', isLoading: false, ...toastErrorConfig });
 
     return (
-        <div className="Contact">
+        <div className="Contact animate__animated animate__fadeIn">
             <div className="Contact-top">
                 <div className="Contact-container">
                     <h3>Hello!<span>Let’s Talk.</span></h3>

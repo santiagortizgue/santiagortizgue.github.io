@@ -8,6 +8,7 @@ import PlaceholderView from '../../components/PlaceholderView/PlaceholderView';
 import AppContext from '../../context/AppContext';
 
 import './Project.scss';
+import "animate.css";
 
 const Project = () => {
     const history = useHistory();
@@ -94,7 +95,7 @@ const Project = () => {
     return (
         <>
             {project ?
-                <div className="Project">
+                <div className="Project animate__animated animate__fadeIn">
                     <div className="Project-top">
                         <BackButton onClick={handleBack} text="Back to Portfolio" />
                         <h2 className="Project-title">{project.title}</h2>

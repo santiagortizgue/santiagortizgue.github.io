@@ -1,11 +1,13 @@
 import React, { useContext, useEffect } from 'react';
 import AppContext from '../../context/AppContext';
-import './Portfolio.scss';
 
 import SocialMedia from '../../components/SocialMedia/SocialMedia';
 import SwiperContainer from '../../components/SwiperContainer/SwiperContainer';
 import PlaceholderCard from '../../components/PlaceholderCard/PlaceholderCard';
 import PlaceholderBlock from '../../components/PlaceholderBlock/PlaceholderBlock';
+
+import './Portfolio.scss';
+import "animate.css";
 
 const Portfolio = () => {
     const { projects } = useContext(AppContext);
@@ -18,7 +20,7 @@ const Portfolio = () => {
     }, []);
 
     return (
-        <div className="Portfolio">
+        <div className="Portfolio animate__animated animate__fadeIn">
 
             <div className="Portfolio-projects Portfolio-container">
                 <h2 className="Portfolio-title">Projects & Experiencies</h2>

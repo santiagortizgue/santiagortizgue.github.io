@@ -15,6 +15,8 @@ const SwiperGallery = ({ gallery }) => {
 
     useEffect(() => {
         setItems(gallery);
+        if(swiper) swiper.updateSlides();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [gallery]);
 
     const params = {

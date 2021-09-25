@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router';
 import Button from '../../components/Button/Button';
-import './NotFound.scss'
+
+import './NotFound.scss';
+import "animate.css";
 
 const NotFound = () => {
     const title1 = '404';
@@ -15,7 +17,7 @@ const NotFound = () => {
     }, []);
 
     return (
-        <div className="NotFound">
+        <div className="NotFound animate__animated animate__fadeIn">
             <div className="NotFound-top">
                 <div className="NotFound-container">
                     <img src="/svg/404.svg" alt="Not Found illustration" />

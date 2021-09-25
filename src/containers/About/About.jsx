@@ -1,9 +1,11 @@
 import React, { useEffect, useContext } from 'react';
 import SwiperCard from '../../components/SwiperCard/SwiperCard';
 import SocialMedia from '../../components/SocialMedia/SocialMedia';
-import "./About.scss"
 
 import AppContext from '../../context/AppContext';
+
+import "./About.scss"
+import "animate.css";
 
 
 const About = () => {
@@ -16,7 +18,7 @@ const About = () => {
     }, []);
 
     return (
-        <div className="About">
+        <div className="About animate__animated animate__fadeIn">
             <div className="About-top">
                 <img className="About-img" src="./jpg/about.jpg" alt="About bio profile" />
                 <h2 className="About-title">About me</h2>
