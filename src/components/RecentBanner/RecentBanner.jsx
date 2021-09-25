@@ -41,7 +41,7 @@ const RecentBanner = ({ data }) => {
 
     return (
         <div className="Home-recent">
-            {imgCover ? <img className="Home-recentImage" src={imgCover} alt="Project recent cover" /> : ''}
+            {imgCover ? <img className="Home-recentImage" src={imgCover} alt="Project recent cover" /> : <img className="Home-recentImage" src="/gif/placeholder/recent_cover.gif" alt="Project recent cover" />}
             <h2 className="Home-recentTitle">{recent.name}</h2>
             <p className="Home-recentAbout">{recent.about}</p>
             {imgLogo ? <MadeTag src={imgLogo} url={recent.e_url} /> : ''}

@@ -516,6 +516,18 @@
 
         > div{
             grid-column: 2 / span 10;
+
+            @include breakpoint(desktop) {
+                grid-column: 2 / span 10;
+            }
+        }
+
+        >img{
+            width: 100%;
+            
+            @include breakpoint(desktop) {
+                grid-column: 2 / span 10;
+            }
         }
     }
 }

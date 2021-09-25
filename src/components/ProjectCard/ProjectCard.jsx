@@ -40,7 +40,7 @@ const ProjectCard = ({ data }) => {
 
     return (
         <Link to={`/project/${data.uid}`} className="ProjectCard">
-            {imgCover ? <img src={imgCover} alt="project cover" /> : ''}
+            {imgCover ? <img src={imgCover} alt="project cover" /> : <img src="/gif/placeholder/card.gif" alt="project cover" />}
             <h4>{data.name}</h4>
             <p>{changeString(data.about)}</p>
             <div className="ProjectCard-roles">

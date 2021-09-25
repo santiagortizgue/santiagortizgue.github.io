@@ -95,7 +95,7 @@ const Project = () => {
                         <BackButton onClick={handleBack} text="Back to Portfolio" />
                         <h2 className="Project-title">{project.title}</h2>
                         <div className="Project-data"><span>{project.year}</span><div className="Project-dot"></div><h1>{project.name}</h1></div>
-                        {imgHeader ? <img className="Project-header" src={imgHeader} alt="header" /> : ''}
+                        {imgHeader ? <img className="Project-header" src={imgHeader} alt="header" /> : <img className="Project-header" src="/gif/placeholder/header.gif" alt="header" />}
                         {imgLogo ? <MadeTag src={imgLogo} url={project.e_url} /> : ''}
                         <p className="Project-about">{project.about}</p>
                         <div className="Project-roles">
@@ -109,8 +109,8 @@ const Project = () => {
                     </div>
 
                     <div className="Project-info">
-                        {imgLeft ? <img className="Project-imgLeft" src={imgLeft} alt="left muck-up" /> : ''}
-                        {imgRight ? <img className="Project-imgRight" src={imgRight} alt="right muck-up" /> : ''}
+                        {imgLeft ? <img className="Project-imgLeft" src={imgLeft} alt="left muck-up" /> : <img className="Project-imgLeft" src="/gif/placeholder/imgLeft.gif" alt="left muck-up" />}
+                        {imgRight ? <img className="Project-imgRight" src={imgRight} alt="right muck-up" /> : <img className="Project-imgRight" src="/gif/placeholder/imgRight.gif" alt="right muck-up" /> }
                         <div className="Project-quote"><p>{project.quote}</p></div>
                     </div>
 
@@ -172,7 +172,7 @@ const Project = () => {
                     </div>
 
                     <div className="Project-gallery">
-                        {imgSlider ? <SwiperGallery gallery={imgSlider} /> : ''}
+                        {imgSlider ? <SwiperGallery gallery={imgSlider} /> : <img src="/gif/placeholder/slides.gif" alt="muck-up" />}
                     </div>
 
                 </div>
