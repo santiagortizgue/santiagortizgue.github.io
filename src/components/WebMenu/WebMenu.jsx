@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import NavMenu from '../NavMenu/NavMenu';
 import ProfileLinks from '../ProfileLinks/ProfileLinks';
-import Fade from 'react-reveal/Fade';
 
 import './WebMenu.scss';
+import "animate.css";
 
 const WebMenu = () => {
     const [menu, setMenu] = useState("mobile");
     const [state, setState] = useState(false);
+
+    const menuRef = useRef();;
 
     useEffect(() => {
         handleType();
@@ -33,19 +35,31 @@ const WebMenu = () => {
             setState(false);
             return;
         }
-        setState(!state);
+        if (state && menuRef.current) {
+            menuRef.current.classList.remove('animate__fadeInUp');
+            menuRef.current.classList.add('animate__fadeOutDown');
+            setTimeout(() => {
+                setState(false);
+                return;
+            }, 500);
+        };
+
+        if(!state){
+            setState(true);
+        }
+        //setState(!state);
     }
 
     return (
         <>
             {menu === "mobile" ?
                 <div className="WebMenu WebMenu-shadow">
-                    <Fade bottom timeout={500} when={state} collapse>
-                        <div className="WebMenu-mobileMenu">
+                    {state ?
+                        <div ref={menuRef} className="WebMenu-mobileMenu animate__animated animate__fadeInUp">
                             <ProfileLinks />
                             <NavMenu handleState={handleState} />
                         </div>
-                    </Fade>
+                        : ''}
                     <div className="WebMenu-mobileContent">
                         <Link to="/" className="WebMenu-mobileLogo" onClick={() => { setState(false) }}>
                             <svg viewBox="0 0 566 566" >
