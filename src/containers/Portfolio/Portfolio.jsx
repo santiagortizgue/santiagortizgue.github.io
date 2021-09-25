@@ -5,6 +5,7 @@ import './Portfolio.scss';
 import SocialMedia from '../../components/SocialMedia/SocialMedia';
 import SwiperContainer from '../../components/SwiperContainer/SwiperContainer';
 import PlaceholderCard from '../../components/PlaceholderCard/PlaceholderCard';
+import PlaceholderBlock from '../../components/PlaceholderBlock/PlaceholderBlock';
 
 const Portfolio = () => {
     const { projects } = useContext(AppContext);
@@ -22,7 +23,8 @@ const Portfolio = () => {
             <div className="Portfolio-projects Portfolio-container">
                 <h2 className="Portfolio-title">Projects & Experiencies</h2>
 
-               <SwiperContainer data={projects} isProject={true} isVariant={false} />
+                {projects.length !== 0 ? <SwiperContainer data={projects} isProject={true} isVariant={false} /> : <PlaceholderBlock/>}
+               
             </div>
 
             <div className="Portfolio-challenges Portfolio-container">
