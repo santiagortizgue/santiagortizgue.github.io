@@ -125,24 +125,29 @@ export default {
         url: '/jpg/experiences/4.jpg'
     }],
     pages: [{
-        name: "About",
+        name: "Home",
         type: "default",
         id: 0,
+        route: "/"
+    },{
+        name: "About",
+        type: "default",
+        id: 1,
         route: "/about"
     },{
         name: "Portfolio",
         type: "default",
-        id: 1,
+        id: 2,
         route: "/portfolio"
     },{
         name: "Blog",
         type: "soon",
-        id: 2,
+        id: 3,
         route: "/blog"
     },{
         name: "Contact",
         type: "default",
-        id: 3,
+        id: 4,
         route: "/contact"
     }],
     footer_links: [{
