@@ -4,7 +4,7 @@ import SocialMedia from '../../components/SocialMedia/SocialMedia';
 
 import AppContext from '../../context/AppContext';
 
-import "./About.scss"
+import "./About.scss";
 import "animate.css";
 
 
@@ -20,7 +20,7 @@ const About = () => {
     return (
         <div className="About animate__animated animate__fadeIn">
             <div className="About-top">
-                <img className="About-img" src="./jpg/about.jpg" alt="About bio profile" />
+                <img className="About-img animate__animated animate__fadeIn" src="./jpg/about.jpg" alt="About bio profile" />
                 <h2 className="About-title">About me</h2>
                 <p className="About-text">I’m Santiago Ortiz Guevara, a 23 years old Colombian <span>Designer</span>. I’ve worked with <strong>front-end development</strong> and <strong>user interface design</strong> on multiple platforms. <br /><br /> My creativity allows me to build experiences and interfaces, based on human feelings and needs. I'm always learning new methodologies, software and strategies to develop these experiences.</p>
                 <div className="About-location">
