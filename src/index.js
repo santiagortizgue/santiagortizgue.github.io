@@ -5,9 +5,13 @@ import App from './routes/App';
 import * as serviceWorker from './serviceWorker';
 import reportWebVitals from './reportWebVitals';
 
+import { ClearCacheProvider } from 'react-clear-cache';
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  <ClearCacheProvider duration={5000}>
+      <App />
+        </ClearCacheProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
