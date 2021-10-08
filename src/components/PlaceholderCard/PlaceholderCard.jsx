@@ -12,7 +12,7 @@ const PlaceholderCard = ({isVariant}) => {
 
     return (
         <div className={isVariant ? 'PlaceholderCard PlaceholderCard-negative' : 'PlaceholderCard'}>
-            <img src="/png/placeholder.png" alt="placeholder cover" />
+            <img src="/svg/placeholder.svg" alt="placeholder cover" />
             <h4>{placeholder.name}</h4>
             <p>{placeholder.about}</p>
         </div>
