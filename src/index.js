@@ -5,9 +5,13 @@ import App from './routes/App';
 import * as serviceWorker from './serviceWorker';
 import reportWebVitals from './reportWebVitals';
 
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+
 ReactDOM.render(
   <React.StrictMode>
-      <App />
+    <ErrorBoundary>
+        <App />
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
 );
