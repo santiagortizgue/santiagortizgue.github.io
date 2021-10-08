@@ -26,6 +26,8 @@
         background-color: $color-white;
         border-radius: 8px;
 
+        cursor: pointer;
+
         transition: .2s ease-in-out background-color;
 
         @include breakpoint(tablet) {
