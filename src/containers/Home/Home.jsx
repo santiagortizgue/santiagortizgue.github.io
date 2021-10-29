@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <div className="Home animate__animated animate__fadeIn">
 
-      <div className="Home-top">
+      <section className="Home-top">
         <div className="Home-imgContainer">
           <div className="Home-gradient"></div>
           <img className="Home-img" src="./png/profile.png" alt="Profile pic" />
@@ -43,17 +43,17 @@ const Home = () => {
         </div>
         <h2 className="Home-title">Hi, I’m <span>Santiago</span>. My creativity allows me to build experiences & interfaces.</h2>
         <Button onClick={handleContact} text="Contact me" />
-      </div>
+      </section>
 
       <SocialMedia />
 
-      <div className="Home-recentContainer">
+      <section className="Home-recentContainer">
         <ContextTag text="Recent Project" />
         {recent ?
           <RecentBanner data={recent} />
           :
           <PlaceholderBlock/>}
-      </div>
+      </section>
 
     </div>
   );

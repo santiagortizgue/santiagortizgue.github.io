@@ -14,12 +14,12 @@ const Blog = () => {
 
     return (
         <div className="Blog animate__animated animate__fadeIn">
-            <div className="Blog-top">
+            <section className="Blog-top">
                 <div className="Blog-container">
                     <img src="/svg/vector.svg" alt="Coding illustration" />
                     <h3>{title1}<span>{title2}</span></h3>
                 </div>
-            </div>
+            </section>
         </div>
     );
 }

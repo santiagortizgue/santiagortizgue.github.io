@@ -19,7 +19,7 @@ const About = () => {
 
     return (
         <div className="About animate__animated animate__fadeIn">
-            <div className="About-top">
+            <section className="About-top">
                 <img className="About-img animate__animated animate__fadeIn" src="./jpg/about.jpg" alt="About bio profile" />
                 <h2 className="About-title">About me</h2>
                 <p className="About-text">I’m Santiago Ortiz Guevara, a 23 years old Colombian <span>Designer</span>. I’ve worked with <strong>front-end development</strong> and <strong>user interface design</strong> on multiple platforms. <br /><br /> My creativity allows me to build experiences and interfaces, based on human feelings and needs. I'm always learning new methodologies, software and strategies to develop these experiences.</p>
@@ -27,12 +27,12 @@ const About = () => {
                     <img src="./svg/location.svg" alt="Location icon" />
                     <p>Cali, Colombia</p>
                 </div>
-            </div>
+            </section>
             <SocialMedia />
-            <div className="About-sliders">
+            <section className="About-sliders">
                 <SwiperCard text="Talents" gallery={talents} />
                 <SwiperCard text="Experience & Skills" gallery={experiences} />
-            </div>
+            </section>
         </div>
     );
 }

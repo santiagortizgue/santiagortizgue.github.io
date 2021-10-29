@@ -96,7 +96,7 @@ const Project = () => {
         <>
             {project ?
                 <div className="Project animate__animated animate__fadeIn">
-                    <div className="Project-top">
+                    <section className="Project-top">
                         <BackButton onClick={handleBack} text="Back to Portfolio" />
                         <h2 className="Project-title">{project.title}</h2>
                         <div className="Project-data"><span>{project.year}</span><div className="Project-dot"></div><h1>{project.name}</h1></div>
@@ -111,16 +111,16 @@ const Project = () => {
                                 ))}
                             </div>
                         </div>
-                    </div>
+                    </section>
 
-                    <div className="Project-info">
+                    <section className="Project-info">
                         {imgLeft ? <img className="Project-imgLeft" src={imgLeft} alt="left muck-up" /> : <img className="Project-imgLeft" src="/gif/placeholder/imgLeft.gif" alt="left muck-up" />}
                         {imgRight ? <img className="Project-imgRight" src={imgRight} alt="right muck-up" /> : <img className="Project-imgRight" src="/gif/placeholder/imgRight.gif" alt="right muck-up" /> }
                         <div className="Project-quote"><p>{project.quote}</p></div>
-                    </div>
+                    </section>
 
-                    <div className="Project-details">
-                        <div className="Project-board">
+                    <section className="Project-details">
+                        <aside className="Project-board">
 
                             {project.apps ?
                                 <div className="Projects-built">
@@ -160,7 +160,7 @@ const Project = () => {
                                 </div>
                                 : ''}
 
-                        </div>
+                        </aside>
 
                         {project.topics ?
                             <div className="Project-topics">
@@ -174,11 +174,11 @@ const Project = () => {
                             </div>
                             : ''}
 
-                    </div>
+                    </section>
 
-                    <div className="Project-gallery">
+                    <section className="Project-gallery">
                         {imgSlider ? <SwiperGallery gallery={imgSlider} /> : <img src="/gif/placeholder/slides.gif" alt="muck-up" />}
-                    </div>
+                    </section>
 
                 </div>
                 : <PlaceholderView />}

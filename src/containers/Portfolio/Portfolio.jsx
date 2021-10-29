@@ -22,24 +22,24 @@ const Portfolio = () => {
     return (
         <div className="Portfolio animate__animated animate__fadeIn">
 
-            <div className="Portfolio-projects Portfolio-container">
+            <section className="Portfolio-projects Portfolio-container">
                 <h2 className="Portfolio-title">Projects & Experiencies</h2>
 
                 {projects.length !== 0 ? <SwiperContainer data={projects} isProject={true} isVariant={false} /> : <PlaceholderBlock/>}
                
-            </div>
+            </section>
 
-            <div className="Portfolio-challenges Portfolio-container">
+            <section className="Portfolio-challenges Portfolio-container">
                 <h2 className="Portfolio-title Portfolio-title2">Development Challenges</h2>
 
                 <PlaceholderCard isVariant={true} />
-            </div>
+            </section>
 
-            <div className="Portfolio-concepts Portfolio-container">
+            <section className="Portfolio-concepts Portfolio-container">
                 <h2 className="Portfolio-title">UI Design Concepts</h2>
 
                 <PlaceholderCard isVariant={false} />
-            </div>
+            </section>
 
             <SocialMedia />
         </div>

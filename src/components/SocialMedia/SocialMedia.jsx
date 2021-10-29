@@ -7,7 +7,7 @@ const SocialMedia = () => {
     const { social_media } = state;
 
     return (
-        <div className="SocialMedia">
+        <section className="SocialMedia">
             {social_media.big.map((link) => (
                 <a href={link.url} key={link.id} target="_blank" rel="noreferrer" className="SocialMedia-bigLink">
                     <img src={`./svg/social_media/big/${link.id}.svg`} alt={`Icon ${link.name}`} />
@@ -25,7 +25,7 @@ const SocialMedia = () => {
                     </a>
                 ))}
             </div>
-        </div>
+        </section>
     );
 }
 

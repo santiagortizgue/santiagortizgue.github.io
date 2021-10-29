@@ -18,13 +18,13 @@ const NotFound = () => {
 
     return (
         <div className="NotFound animate__animated animate__fadeIn">
-            <div className="NotFound-top">
+            <section className="NotFound-top">
                 <div className="NotFound-container">
                     <img src="/svg/404.svg" alt="Not Found illustration" />
                     <h3>{title1}<span>{title2}</span></h3>
                     <Button onClick={() => history.push('/')} text='Back to Home' />
                 </div>
-            </div>
+            </section>
         </div>
     );
 }

@@ -104,7 +104,7 @@ const Contact = () => {
 
     return (
         <div className="Contact animate__animated animate__fadeIn">
-            <div className="Contact-top">
+            <section className="Contact-top">
                 <div className="Contact-container">
                     <h3>Hello!<span>Let’s Talk.</span></h3>
 
@@ -131,7 +131,7 @@ const Contact = () => {
                         <button className="Contact-button" type="submit">Send Message</button>
                     </form>
                 </div>
-            </div>
+            </section>
         </div>
     );
 }

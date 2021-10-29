@@ -57,7 +57,7 @@ const WebMenu = () => {
     return (
         <>
             {menu === "mobile" ?
-                <div className="WebMenu WebMenu-shadow">
+                <header className="WebMenu WebMenu-shadow">
                     {state ?
                         <div ref={menuRef} className="WebMenu-mobileMenu animate__animated animate__fadeInUp">
                             <ProfileLinks />
@@ -81,9 +81,9 @@ const WebMenu = () => {
                             }
                         </div>
                     </div>
-                </div>
+                </header>
                 :
-                <div className="WebMenu">
+                <header className="WebMenu">
                     <div className="WebMenu-context">
                         <Link to="/" className="WebMenu-Logo" onClick={() => { setState(false) }}>
                             <svg viewBox="0 0 566 566" >
@@ -95,7 +95,7 @@ const WebMenu = () => {
                         <h1 className="WebMenu-title">Santiagortizgue</h1>
                     </div>
                     <NavMenu callback={handleClickLink} handleState={handleState} />
-                </div>
+                </header>
             }
         </>
     );
