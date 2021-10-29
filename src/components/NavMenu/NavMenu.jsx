@@ -4,7 +4,7 @@ import AppContext from '../../context/AppContext';
 
 import './NavMenu.scss'
 
-const NavMenu = ({ handleState }) => {
+const NavMenu = ({ callback }) => {
     const { state } = useContext(AppContext);
     const { pages } = state;
 
@@ -22,6 +22,7 @@ const NavMenu = ({ handleState }) => {
                         <Link
                             to={page.route}
                             key={page.id}
+                            onClick={()=>callback()}
                             className="NavMenu-item">
                             <h3>
                                 {page.name}

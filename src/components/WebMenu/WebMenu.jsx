@@ -50,6 +50,10 @@ const WebMenu = () => {
         //setState(!state);
     }
 
+    const handleClickLink = () =>{
+        handleState(false);
+    }
+
     return (
         <>
             {menu === "mobile" ?
@@ -57,7 +61,7 @@ const WebMenu = () => {
                     {state ?
                         <div ref={menuRef} className="WebMenu-mobileMenu animate__animated animate__fadeInUp">
                             <ProfileLinks />
-                            <NavMenu handleState={handleState} />
+                            <NavMenu callback={handleClickLink} handleState={handleState} />
                         </div>
                         : ''}
                     <div className="WebMenu-mobileContent">
@@ -90,7 +94,7 @@ const WebMenu = () => {
                         </Link>
                         <h1 className="WebMenu-title">Santiagortizgue</h1>
                     </div>
-                    <NavMenu handleState={handleState} />
+                    <NavMenu callback={handleClickLink} handleState={handleState} />
                 </div>
             }
         </>
