@@ -110,13 +110,7 @@ const useInitialState = () => {
     }
 
     const builtProjectObject = (data, uid) => {
-
-        let p = {
-            ...data,
-            uid
-        };
-
-        return p;
+        return new Project(data, uid);
     }
 
     return {
@@ -136,6 +130,32 @@ export default useInitialState;
 
 const timeout = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+class Project{
+
+    constructor(data, uid){
+        this.about = data.about;
+        this.apps = data.apps;
+        this.cover = data.cover;
+        this.e_img = data.e_img;
+        this.e_url = data.e_url;
+        this.header = data.header;
+        this.imgLeft = data.imgLeft;
+        this.imgRight = data.imgRight;
+        this.links = data.links;
+        this.name = data.name;
+        this.order = data.order;
+        this.quote = data.quote;
+        this.recent_cover = data.recent_cover;
+        this.slides = data.slides;
+        this.team = data.team;
+        this.title = data.title;
+        this.topics = data.topics;
+        this.work_roles = data.work_roles;
+        this.year = data.year;
+        this.uid = uid;
+    }
 }
 
 

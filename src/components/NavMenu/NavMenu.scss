@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     width: auto;
+    row-gap: 16px;
 
     @include breakpoint(tablet) {
         display: flex;
@@ -12,6 +13,8 @@
         justify-content: flex-end;
         align-items: center;
         align-content: center;
+
+        row-gap: 0;
     }
 
     &-item{
@@ -21,7 +24,6 @@
         align-content: center;
         align-items: center;
         padding: 8px 16px;
-        margin-bottom: 16px;
 
         background-color: $color-white;
         border-radius: 8px;
@@ -30,16 +32,8 @@
 
         transition: .2s ease-in-out background-color;
 
-        @include breakpoint(tablet) {
-            margin: 0;
-        }
-
         &:hover{
             background-color: $color-aguacate-10;
-        }
-
-        &:last-of-type{
-            margin-bottom: 0;
         }
 
         >h3{
